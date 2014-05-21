@@ -100,7 +100,8 @@ The problem is that the people put information that changes inside while normall
 	
 TextConstants TextSharedInformation keys 
 	#(#CrLfCrLf #DefaultEditMenu #DefaultFixedTextStyle #DefaultTextStyle #pixelsPerInch #CaretForm #CrLf #DefaultMultiStyle #DefaultEditMenuMessages #'Bitmap DejaVu Sans' #CtlW #StyleDecoder)	
-	
+
+  * We should try to remove TextSharedInformation.
 	
 	
 ### TextStyle	
@@ -110,7 +111,8 @@ We have 106 users of TextStyle. It has a lot of responsibilities:
   * registered fonts
   * screen pixel information
 	
-	
+
+
 ### StandardFonts
 
   * this is a facade with 98 references.
