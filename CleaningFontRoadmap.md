@@ -1,4 +1,3 @@
-
 This is version v1 21 May 2014 of the roadmap.
 
 
@@ -43,79 +42,73 @@ Apparently this is just a class level helper to load and compile strikefonts.
   * migrate it as a subclass FontProviderAbstrract
 	
 
-StrikeFontSet 
--------------------
-	is a subclass of StrikeFont. 
-	=> do we remove it or not?
+# StrikeFontSet 
+
+StrikeFontSet is a subclass of StrikeFont. Do we remove it or not?
 		
 
-Several tools are packaged in different places 		[Done] 13270
----------------------------------------------------------------
-	Create a new package named FontChooser
+# [Done] Several tools are packaged in different places 		
+This issue has been addressed in 13270. https://pharo.fogbugz.com/default.asp?13270
 	
-		Move AbstractFontSelectorDialogWindow and FreeTypeFontSelectorDialogWindow out of Polymorph-Widgets to 
-		a new package FontManager 
-		Then move 
-		FontChooser is in FreeType-UI  is it only for FreeType?
+  * Create a new package named FontChooser
+	
+  * Move AbstractFontSelectorDialogWindow and FreeTypeFontSelectorDialogWindow out of Polymorph-Widgets to a new package FontManager. Then move FontChooser to is.
 	
 
-LogicalFont
------------------
-it looks like LogicalFont should be more used since this is an abstraction over the fonts
+# LogicalFont
 
-	LogicalFont should be moved out FreeType 			[Done] 13270
-	
-	setFontsFromSpec: should be probably moved to TextStyle
-	
-	Some LogicalFonts Athens extensions should be moved to logicalFonts 
-		- get* should be moved to logicalFonts
-		- asFreeTypeFont to freeType package
-	Same for FreeTypeFont
-	
-	
-LogicalFontManager
-----------------------------
-	may be some information from textStyle should be moved to LogicalFontManager         [Done] 13270	
-Extract an abstract package out of FreeType package
-------------------------------------------------------------------------
+It looks like LogicalFont should be more used since this is an abstraction over the fonts
 
-FontFamilyAbstract    -> move out        [Done] 13270
-	FreeTypeFontFamily -> stay in FT
-	TextStyleAsFontFamily ->
+  * [Done ] LogicalFont should be moved out FreeType 			[Done] 13270
+  * setFontsFromSpec: should be probably moved to TextStyle
+  * Some LogicalFonts Athens extensions should be moved to logicalFonts 
+    * get* should be moved to logicalFonts
+    * asFreeTypeFont to freeType package
+  * Same for FreeTypeFont
 	
-FontFamilyMemberAbstract                   [Done] 13270
+	
+# LogicalFontManager
 
-FontProviderAbstrract -> move out       [Done] 13270
-	FreeTypeFontProvider -> stay in FT
-	Missing StrikeFontProvider (may be we should extract it from FontSet because it is what it does)
+  * may be some information from textStyle should be moved to LogicalFontManager        	
+  * [Done] 13270 Extract an abstract package out of FreeType package
+
+# Some Restructurings
+
+  * FontFamilyAbstract    -> move out        [Done] 13270
+    *	FreeTypeFontFamily -> stay in FT
+    *	TextStyleAsFontFamily ->
+	
+  * FontFamilyMemberAbstract                   [Done] 13270
+
+  * FontProviderAbstrract -> move out       [Done] 13270
+     *	FreeTypeFontProvider -> stay in FT
+     * Missing StrikeFontProvider (may be we should extract it from FontSet because it is what it does)
 			
 
 	
-SourceCodeFonts 
--------------------------
-	looks like a hack to get the previously embedded but not registered fonts in the settings?
+# SourceCodeFonts 
+
+SourceCodeFonts	looks like a hack to get the previously embedded but not registered fonts in the settings?
 	
 FreeTypeFontProvider class comment sucks and refer to FileDirectory
 	
 	
-We should clean TextSharedInformation
--------------------------------------------------------
-	TextSharedInformation was a creation out of the old TextContants dictionary.
-	The problem is that the people put information that changes inside while normally they should not.
+# Clean TextSharedInformation
+
+TextSharedInformation was a creation out of the old TextContants dictionary.
+The problem is that the people put information that changes inside while normally they should not.
 	
-		TextConstants TextSharedInformation keys 
-				#(#CrLfCrLf #DefaultEditMenu #DefaultFixedTextStyle #DefaultTextStyle #pixelsPerInch #CaretForm #CrLf #DefaultMultiStyle 				#DefaultEditMenuMessages #'Bitmap DejaVu Sans' #CtlW #StyleDecoder)	
+TextConstants TextSharedInformation keys 
+	#(#CrLfCrLf #DefaultEditMenu #DefaultFixedTextStyle #DefaultTextStyle #pixelsPerInch #CaretForm #CrLf #DefaultMultiStyle #DefaultEditMenuMessages #'Bitmap DejaVu Sans' #CtlW #StyleDecoder)	
 	
 	
 	
-TextStyle	does not hold any FreeType information
---------------------------------------------------------------------
-	TextStyle only refer to StrikeFont
+# TextStyle	
+TestStyle does not hold any FreeType information. TextStyle only refer to StrikeFont
 	
-	We have 106 users of TextStyle
-	It has a lot of responsibilities:
-		- registered fonts
-		- screen pixel information
+We have 106 users of TextStyle. It has a lot of responsibilities:
+  * registered fonts
+  * screen pixel information
 	
 	
 StandardFonts
