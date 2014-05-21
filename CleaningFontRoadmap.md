@@ -2,53 +2,45 @@
 This is version v1 21 May 2014 of the roadmap.
 
 
-# One of the core problem is described by the following problem
+# FT problem
+One of the core problem is described by the following problem
 
--- Step 1- FT is on
-		default font -> arial
+   * Step 1- FT is set, and we pick a font default font -> arial
 
-	Step 2- FT sets off
-		default font is strike font
+   * Step 2- FT sets off, default font is strike font
 
-	Step 3- FT is set on
-		default font is still a strike font
+   * Step 3- FT is set on, default font is still a strike font
 	
 
 # Related bug entries
 
-- [Done ] https://pharo.fogbugz.com/default.asp?13270
+  *  [Done ] https://pharo.fogbugz.com/default.asp?13270
 
-- When FreeType is on, TextStyle default should not return a StrikeFont
+  * When FreeType is on, TextStyle default should not return a StrikeFont
 	https://pharo.fogbugz.com/default.asp?13152
 
-- Comment of FreeTypeProvider refers to FileDirectory and it should not 
+  * Comment of FreeTypeProvider refers to FileDirectory and it should not 
 	https://pharo.fogbugz.com/default.asp?13153
 
-- Move embedded fonts from Freetype package into separate package
+  * Move embedded fonts from Freetype package into separate package
 	https://pharo.fogbugz.com/default.asp?13185
 
 
+#EmbeddedFreetypeFont
 
+EmbeddedFreetypeFontshould be renamed as EmbeddedFreeTypeFontDescription
 
+#FreeType-Fonts-SourceCode
 
-EmbeddedFreetypeFont
-——————————
-	should be renamed 
-		EmbeddedFreeTypeFontDescription
+FreeType-Fonts-SourceCode should be moved out FreeType,	may be we should move it to FontInfrastructure
 
-FreeType-Fonts-SourceCode should be moved out FreeType
+# FontSet sucks
 
-	may be we should move it to 
-		FontInfrastructure
+Apparently this is just a class level helper to load and compile strikefonts.
 
-FontSet sucks
--------------------
-	apparently this is just a class level helper to load and compile strikefonts.
-
-	=> probably remove it. 
-	=> check if we should revise
-	=> migrate it as a subclass
-		FontProviderAbstrract
+  * probably remove it. 
+  * check if we should revise
+  * migrate it as a subclass FontProviderAbstrract
 	
 
 StrikeFontSet 
