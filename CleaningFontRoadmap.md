@@ -1,7 +1,7 @@
 This is version v1 21 May 2014 of the roadmap.
 
 
-# FT problem
+### FT problem
 One of the core problem is described by the following problem
 
    * Step 1- FT is set, and we pick a font default font -> arial
@@ -11,7 +11,7 @@ One of the core problem is described by the following problem
    * Step 3- FT is set on, default font is still a strike font
 	
 
-# Related bug entries
+### Related bug entries
 
   *  [Done ] https://pharo.fogbugz.com/default.asp?13270
 
@@ -25,15 +25,15 @@ One of the core problem is described by the following problem
 	https://pharo.fogbugz.com/default.asp?13185
 
 
-#EmbeddedFreetypeFont
+### EmbeddedFreetypeFont
 
 EmbeddedFreetypeFontshould be renamed as EmbeddedFreeTypeFontDescription
 
-#FreeType-Fonts-SourceCode
+###FreeType-Fonts-SourceCode
 
 FreeType-Fonts-SourceCode should be moved out FreeType,	may be we should move it to FontInfrastructure
 
-# FontSet sucks
+### FontSet sucks
 
 Apparently this is just a class level helper to load and compile strikefonts.
 
@@ -42,12 +42,12 @@ Apparently this is just a class level helper to load and compile strikefonts.
   * migrate it as a subclass FontProviderAbstrract
 	
 
-# StrikeFontSet 
+### StrikeFontSet 
 
 StrikeFontSet is a subclass of StrikeFont. Do we remove it or not?
 		
 
-# [Done] Several tools are packaged in different places 		
+### [Done] Several tools are packaged in different places 		
 This issue has been addressed in 13270. https://pharo.fogbugz.com/default.asp?13270
 	
   * Create a new package named FontChooser
@@ -55,11 +55,11 @@ This issue has been addressed in 13270. https://pharo.fogbugz.com/default.asp?13
   * Move AbstractFontSelectorDialogWindow and FreeTypeFontSelectorDialogWindow out of Polymorph-Widgets to a new package FontManager. Then move FontChooser to is.
 	
 
-# LogicalFont
+### LogicalFont
 
 It looks like LogicalFont should be more used since this is an abstraction over the fonts
 
-  * [Done ] LogicalFont should be moved out FreeType 			[Done] 13270
+  * [Done - 13270] LogicalFont should be moved out FreeType 			
   * setFontsFromSpec: should be probably moved to TextStyle
   * Some LogicalFonts Athens extensions should be moved to logicalFonts 
     * get* should be moved to logicalFonts
@@ -67,33 +67,33 @@ It looks like LogicalFont should be more used since this is an abstraction over 
   * Same for FreeTypeFont
 	
 	
-# LogicalFontManager
+### LogicalFontManager
 
   * may be some information from textStyle should be moved to LogicalFontManager        	
-  * [Done] 13270 Extract an abstract package out of FreeType package
+  * [Done - 13270] Extract an abstract package out of FreeType package
 
-# Some Restructurings
+### Some Restructurings
 
-  * FontFamilyAbstract    -> move out        [Done] 13270
+  * [Done - 13270] FontFamilyAbstract    -> move out      
     *	FreeTypeFontFamily -> stay in FT
     *	TextStyleAsFontFamily ->
 	
-  * FontFamilyMemberAbstract                   [Done] 13270
+  * [Done - 13270] FontFamilyMemberAbstract                
 
-  * FontProviderAbstrract -> move out       [Done] 13270
+  * [Done - 13270] FontProviderAbstrract -> move out       
      *	FreeTypeFontProvider -> stay in FT
      * Missing StrikeFontProvider (may be we should extract it from FontSet because it is what it does)
 			
 
 	
-# SourceCodeFonts 
+### SourceCodeFonts 
 
 SourceCodeFonts	looks like a hack to get the previously embedded but not registered fonts in the settings?
 	
 FreeTypeFontProvider class comment sucks and refer to FileDirectory
 	
 	
-# Clean TextSharedInformation
+### Clean TextSharedInformation
 
 TextSharedInformation was a creation out of the old TextContants dictionary.
 The problem is that the people put information that changes inside while normally they should not.
@@ -103,7 +103,7 @@ TextConstants TextSharedInformation keys
 	
 	
 	
-# TextStyle	
+### TextStyle	
 TestStyle does not hold any FreeType information. TextStyle only refer to StrikeFont
 	
 We have 106 users of TextStyle. It has a lot of responsibilities:
