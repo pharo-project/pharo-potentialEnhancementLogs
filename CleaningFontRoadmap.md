@@ -111,6 +111,16 @@ We have 106 users of TextStyle. It has a lot of responsibilities:
   * screen pixel information
 	
 	
-StandardFonts
---------------------
-	this is a facade 98 references
+### StandardFonts
+
+  * this is a facade with 98 references.
+  * I wonder if StandardFonts should not be merged with FontManager.
+  
+### About my changes
+I introduced a new little hierarchy StandardFontSelection used by the StandardFonts but I wonder if it makes sense.
+  
+
+
+
+
+
