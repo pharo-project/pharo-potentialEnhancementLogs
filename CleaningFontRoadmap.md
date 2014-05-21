@@ -125,6 +125,7 @@ I wonder if a strategy to collect fonts should not be added to the fontManager b
 
 The following method hilights some problems
 
+```
 LogicalFontManager>>bestFontFor: aLogicalFont whenFindingAlternativeIgnoreAll: ignoreSet
 	"look up best real font from the receivers fontProviders.
 	If we can't find a font, then answer an alternative real font.
@@ -162,7 +163,7 @@ LogicalFontManager>>bestFontFor: aLogicalFont whenFindingAlternativeIgnoreAll: i
 				ifFalse: [ ^ font emphasized: aLogicalFont emphasis ] ].	"There are no non-logical fonts in TextSharedInformation - let it fail by answering nil"
 	^ nil
 
-
+```
 
 
 
