@@ -119,6 +119,7 @@ We have 106 users of TextStyle. It has a lot of responsibilities:
 ### About my changes
 I introduced a new little hierarchy StandardFontSelection used by the StandardFonts but I wonder if it makes sense.
   
+I wonder if a strategy to collect fonts should not be added to the fontManager because right now all the fonts are queried and this does not make sense.
 
 
 
