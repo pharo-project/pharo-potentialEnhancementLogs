@@ -4,6 +4,7 @@ Have a  look at
   * http://smalltalkhub.com/#!/~StephaneDucasse/SystemLogger
   * and the chapter https://ci.inria.fr/pharo-contribution/job/PharoForTheEnterprise/lastSuccessfulBuild/artifact/Logger/
 
+### Steps
 
   * note that SystemLogger has a special logger that pushes strings to Transcript so we can have the same as now.
 
