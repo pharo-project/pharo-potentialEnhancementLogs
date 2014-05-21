@@ -82,7 +82,7 @@ It looks like LogicalFont should be more used since this is an abstraction over 
 
   * [Done - 13270] FontProviderAbstrract -> move out       
      *	FreeTypeFontProvider -> stay in FT
-     * Missing StrikeFontProvider (may be we should extract it from FontSet because it is what it does)
+  * Missing StrikeFontProvider (may be we should extract it from FontSet because it is what it does)
 			
 
 	
