@@ -2,9 +2,9 @@
 This is version v1 21 May 2014 of the roadmap.
 
 
-One of the core problem is described by the following problem
-————————————————————————————————————-
-	Step 1- FT is on
+# One of the core problem is described by the following problem
+
+-- Step 1- FT is on
 		default font -> arial
 
 	Step 2- FT sets off
@@ -14,18 +14,18 @@ One of the core problem is described by the following problem
 		default font is still a strike font
 	
 
-Related bug entries
+# Related bug entries
 
-	- [Done ] https://pharo.fogbugz.com/default.asp?13270
+- [Done ] https://pharo.fogbugz.com/default.asp?13270
 
-	- When FreeType is on, TextStyle default should not return a StrikeFont
-		https://pharo.fogbugz.com/default.asp?13152
+- When FreeType is on, TextStyle default should not return a StrikeFont
+	https://pharo.fogbugz.com/default.asp?13152
 
-	- Comment of FreeTypeProvider refers to FileDirectory and it should not 
-		https://pharo.fogbugz.com/default.asp?13153
+- Comment of FreeTypeProvider refers to FileDirectory and it should not 
+	https://pharo.fogbugz.com/default.asp?13153
 
-	- Move embedded fonts from Freetype package into separate package
-		https://pharo.fogbugz.com/default.asp?13185
+- Move embedded fonts from Freetype package into separate package
+	https://pharo.fogbugz.com/default.asp?13185
 
 
 
