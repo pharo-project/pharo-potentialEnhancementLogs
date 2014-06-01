@@ -11,9 +11,14 @@ One of the core problem is described by the following problem
    * Step 3- FT is set on, default font is still a strike font
 	
 
+### Question
+I did a first version where I added a kind of helper class to StandardFonts so that we could get strikeFonts and freetype font separetly handled. But I was the impression that we need also the same when collecting existing fonts.
+So I thought that may be this should be in the same classes. So may be I should start to handle the collection of fonts then the defaults setting.
+
 ### Related bug entries
 
   *  [Done ] https://pharo.fogbugz.com/default.asp?13270
+  	* mainly repackaging
 
   * When FreeType is on, TextStyle default should not return a StrikeFont
 	https://pharo.fogbugz.com/default.asp?13152
@@ -27,7 +32,7 @@ One of the core problem is described by the following problem
 
 ### EmbeddedFreetypeFont
 
-EmbeddedFreetypeFontshould be renamed as EmbeddedFreeTypeFontDescription
+EmbeddedFreetypeFont should be renamed as EmbeddedFreeTypeFontDescription
 
 ###FreeType-Fonts-SourceCode
 
@@ -68,9 +73,9 @@ It looks like LogicalFont should be more used since this is an abstraction over 
 	
 	
 ### LogicalFontManager
-
-  * may be some information from textStyle should be moved to LogicalFontManager        	
   * [Done - 13270] Extract an abstract package out of FreeType package
+  * may be some information from textStyle should be moved to LogicalFontManager        	
+
 
 ### Some Restructurings
 
@@ -79,9 +84,8 @@ It looks like LogicalFont should be more used since this is an abstraction over 
     *	TextStyleAsFontFamily ->
 	
   * [Done - 13270] FontFamilyMemberAbstract                
-
   * [Done - 13270] FontProviderAbstrract -> move out       
-     *	FreeTypeFontProvider -> stay in FT
+  * FreeTypeFontProvider -> stay in FT
   * Missing StrikeFontProvider (may be we should extract it from FontSet because it is what it does)
 			
 
