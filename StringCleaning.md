@@ -20,7 +20,7 @@ the way string are copied is a bit inconsistent some uses copy other new:
 	
 		^ self copy asString translateToLowercase
 		
-		vs
+vs
 	
 
 	asOctetString
