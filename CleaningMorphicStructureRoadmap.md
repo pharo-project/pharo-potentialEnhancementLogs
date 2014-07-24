@@ -48,6 +48,354 @@ slideBackToFormerSituation: that could be moved to morphic-base because it refer
 	because ToggleMenuItemMorph>>offImage [Morphic-Base] refers to CheckboxButtonMorph [ Morphic-Widgets-Basic]
 
 
+### Clean Morphic-Core unimplemented calls
 
+Loading of Morphic-Core creates this new unimplemented calls
+
+```
+actionSelector calledBy: Morph showActions 
+actionSelector calledBy: Morph submorphNamed:ifNone: 
+add:action: calledBy: Morph addExportMenuItems:hand: 
+add:action: calledBy: Morph addFillStyleMenuItems:hand: 
+add:action: calledBy: Morph addHaloActionsTo: 
+add:action: calledBy: Morph addLayoutMenuItems:hand: 
+add:action: calledBy: Morph addMiscExtrasTo: 
+add:action: calledBy: Morph addStandardHaloMenuItemsTo:hand: 
+add:action: calledBy: Morph addTableLayoutMenuItems:hand: 
+add:action: calledBy: Morph addYellowButtonMenuItemsTo:event: 
+add:action: calledBy: Morph buildDebugMenu: 
+add:action: calledBy: Morph buildMetaMenu: 
+add:icon:subMenu: calledBy: Morph addExportMenuItems:hand: 
+add:icon:subMenu: calledBy: Morph addNestedYellowButtonItemsTo:event: 
+add:selector:argument: calledBy: Morph adhereToEdge 
+add:selector:argument: calledBy: Morph buildMetaMenu: 
+add:subMenu: calledBy: BorderedMorph addBorderStyleMenuItems:hand: 
+add:subMenu: calledBy: Morph addCellLayoutMenuItems:hand: 
+add:subMenu: calledBy: Morph addDebuggingItemsTo:hand: 
+add:subMenu: calledBy: Morph addDropShadowMenuItems:hand: 
+add:subMenu: calledBy: Morph addEmbeddingMenuItemsTo:hand: 
+add:subMenu: calledBy: Morph addFillStyleMenuItems:hand: 
+add:subMenu: calledBy: Morph addHaloActionsTo: 
+add:subMenu: calledBy: Morph addLayoutMenuItems:hand: 
+add:subMenu: calledBy: Morph addMiscExtrasTo: 
+add:subMenu: calledBy: Morph addTableLayoutMenuItems:hand: 
+add:subMenu: calledBy: Morph addTextAnchorMenuItems:hand: 
+add:target:action: calledBy: Morph addHaloActionsTo: 
+add:target:action: calledBy: Morph buildDebugMenu: 
+add:target:action: calledBy: Morph maybeAddCollapseItemTo: 
+add:target:action: calledBy: PasteUpMorph contentsMenu: 
+add:target:action: calledBy: PasteUpMorph findWindow: 
+add:target:action: calledBy: WorldMorph contentsMenu: 
+add:target:selector: calledBy: Morph addDropShadowMenuItems:hand: 
+add:target:selector: calledBy: Morph buildDebugMenu: 
+add:target:selector: calledBy: WorldState fallbackMenuOn: 
+add:target:selector:argument: calledBy: BorderedMorph addBorderStyleMenuItems:hand: 
+add:target:selector:argument: calledBy: Morph addEmbeddingMenuItemsTo:hand: 
+addHalo: calledBy: Morph addHalo 
+addHalo: calledBy: Morph addHalo:from: 
+addHalo: calledBy: Morph blueButtonDown: 
+addLeftOrTop: calledBy: BorderedMorph linkSubmorphsToSplitters 
+addLine calledBy: BorderedMorph addBorderStyleMenuItems:hand: 
+addLine calledBy: Morph addCellLayoutMenuItems:hand: 
+addLine calledBy: Morph addDropShadowMenuItems:hand: 
+addLine calledBy: Morph addFillStyleMenuItems:hand: 
+addLine calledBy: Morph addHaloActionsTo: 
+addLine calledBy: Morph addLayoutMenuItems:hand: 
+addLine calledBy: Morph addNestedYellowButtonItemsTo:event: 
+addLine calledBy: Morph addStandardHaloMenuItemsTo:hand: 
+addLine calledBy: Morph addTableLayoutMenuItems:hand: 
+addLine calledBy: Morph addYellowButtonMenuItemsTo:event: 
+addLine calledBy: Morph adhereToEdge 
+addLine calledBy: Morph buildDebugMenu: 
+addLine calledBy: Morph buildHandleMenu: 
+addLine calledBy: Morph buildMetaMenu: 
+addLine calledBy: PasteUpMorph addWorldHaloMenuItemsTo:hand: 
+addLine calledBy: PasteUpMorph findWindow: 
+addLine calledBy: WorldMorph contentsMenu: 
+addLine calledBy: WorldState fallbackMenuOn: 
+addList: calledBy: BorderedMorph addBorderStyleMenuItems:hand: 
+addList: calledBy: WorldState fallbackMenuOn: 
+addModelYellowButtonMenuItemsTo:forMorph:hand: calledBy: Morph addModelYellowButtonItemsTo:event: 
+addRightOrBottom: calledBy: BorderedMorph linkSubmorphsToSplitters 
+addStayUpIcons calledBy: WorldMorph contentsMenu: 
+addStayUpItem calledBy: Morph addYellowButtonMenuItemsTo:event: 
+addStayUpItem calledBy: Morph buildDebugMenu: 
+addStayUpItem calledBy: Morph buildHandleMenu: 
+addStayUpItem calledBy: Morph buildMetaMenu: 
+addStayUpItemSpecial calledBy: BorderedMorph addBorderStyleMenuItems:hand: 
+addStayUpItemSpecial calledBy: Morph addHaloActionsTo: 
+addTitle: calledBy: Morph addHaloActionsTo: 
+addTitle: calledBy: Morph invokeMetaMenu: 
+addTitle: calledBy: PasteUpMorph findWindow: 
+addTitle: calledBy: PasteUpMorph popUpContentsMenu: 
+addTitle: calledBy: WorldState fallbackMenuOn: 
+addTitle:icon: calledBy: Morph addTitleForHaloMenu: 
+addTitle:icon: calledBy: Morph yellowButtonActivity: 
+addUpdating:action: calledBy: Morph addCellLayoutMenuItems:hand: 
+addUpdating:action: calledBy: Morph addDropShadowMenuItems:hand: 
+addUpdating:action: calledBy: Morph addLayoutMenuItems:hand: 
+addUpdating:action: calledBy: Morph addTableLayoutMenuItems:hand: 
+addUpdating:action: calledBy: Morph addTextAnchorMenuItems:hand: 
+addUpdating:action: calledBy: Morph addToggleItemsToHaloMenu: 
+addUpdating:action: calledBy: PasteUpMorph addWorldToggleItemsToHaloMenu: 
+addUpdating:target:selector:argumentList: calledBy: Morph addCellLayoutMenuItems:hand: 
+addUpdating:target:selector:argumentList: calledBy: Morph addTableLayoutMenuItems:hand: 
+addUpdating:target:selector:argumentList: calledBy: Morph buildMetaMenu: 
+anchorMorph:at:type: calledBy: Morph changeDocumentAnchor 
+anchorMorph:at:type: calledBy: Morph changeInlineAnchor 
+anchorMorph:at:type: calledBy: Morph changeParagraphAnchor 
+asBalloonCanvas calledBy: FormCanvas balloonFillOval:fillStyle:borderWidth:borderColor: 
+asBalloonCanvas calledBy: FormCanvas balloonFillRectangle:fillStyle: 
+asBalloonCanvas calledBy: FormCanvas drawPolygon:fillStyle:borderWidth:borderColor: 
+asBalloonCanvas calledBy: FormCanvas render: 
+asFlexOf: calledBy: Morph addFlexShell 
+asFlexOf: calledBy: Morph slideBackToFormerSituation: 
+asKeyCombination calledBy: Morph class morphNavigationShortcutsOn: 
+asLayoutFrame calledBy: Morph addMorph:fullFrame: 
+asLayoutFrame calledBy: Morph layoutFrame: 
+ascent calledBy: FormCanvas drawString:from:to:in:font:color:underline:underlineColor:strikethrough:strikethroughColor: 
+assureLayoutProperties calledBy: Morph disableTableLayout: 
+assureLayoutProperties calledBy: Morph hResizing: 
+assureLayoutProperties calledBy: Morph vResizing: 
+assureTableProperties calledBy: Morph cellInset: 
+assureTableProperties calledBy: Morph cellPositioning: 
+assureTableProperties calledBy: Morph cellSpacing: 
+assureTableProperties calledBy: Morph layoutInset: 
+assureTableProperties calledBy: Morph listCentering: 
+assureTableProperties calledBy: Morph listDirection: 
+assureTableProperties calledBy: Morph listSpacing: 
+assureTableProperties calledBy: Morph maxCellSize: 
+assureTableProperties calledBy: Morph minCellSize: 
+assureTableProperties calledBy: Morph reverseTableCells: 
+assureTableProperties calledBy: Morph rubberBandCells: 
+assureTableProperties calledBy: Morph wrapCentering: 
+assureTableProperties calledBy: Morph wrapDirection: 
+balloonTextForLastItem: calledBy: Morph addHaloActionsTo: 
+balloonTextForLastItem: calledBy: Morph addToggleItemsToHaloMenu: 
+balloonTextForLastItem: calledBy: PasteUpMorph addWorldToggleItemsToHaloMenu: 
+bottomFraction calledBy: BorderedMorph linkSubmorphsToSplitters 
+boundsWithinCorners calledBy: HandMorph fullDrawOn: 
+boundsWithinCorners calledBy: Morph areasRemainingToFill: 
+browser calledBy: WorldState class mostUsedToolsOn: 
+category:default:do: calledBy: Morph class morphNavigationShortcutsOn: 
+chooseColor: calledBy: Morph changeColorTarget:selector:originalColor:hand: 
+chooseColor: calledBy: Morph changeShadowColor 
+clearBuffer calledBy: HandMorph generateMouseEvent: 
+click:fromMorph: calledBy: Morph click: 
+collapse calledBy: PasteUpMorph collapseNonWindows 
+collapseOrExpand calledBy: PasteUpMorph collapseAll 
+collapseOrExpand calledBy: PasteUpMorph expandAll 
+commandKeyHandler: calledBy: WorldState fallbackMenuOn: 
+ctrl calledBy: Morph class morphNavigationShortcutsOn: 
+currentEvent calledBy: Morph adhereToEdge 
+currentHand calledBy: Morph cursorPoint 
+currentHand calledBy: Morph openInHand 
+currentHand calledBy: Morph startDrag:with: 
+defaultBalloonColor calledBy: Morph balloonColor 
+defaultBalloonFont calledBy: Morph balloonFont 
+defaultDesktopCommandKeyTriplets calledBy: PasteUpMorph initializeDesktopCommandKeySelectors 
+defaultLabel calledBy: Morph openInWindow 
+defaultTarget calledBy: Canvas reset 
+defaultTarget: calledBy: Morph addStandardHaloMenuItemsTo:hand: 
+defaultTarget: calledBy: Morph addYellowButtonMenuItemsTo:event: 
+defaultTarget: calledBy: Morph buildHandleMenu: 
+defaultTarget: calledBy: PasteUpMorph addWorldHaloMenuItemsTo:hand: 
+defaultTarget: calledBy: WorldState fallbackMenuOn: 
+displayOn:using:at: calledBy: FormCanvas paragraph:bounds:color: 
+displayScannerFor:foreground:background:ignoreColorChanges: calledBy: FormCanvas paragraph:bounds:color: 
+displayString:on:from:to:at:kern: calledBy: FormCanvas drawString:from:to:at:font:color: 
+displayString:on:from:to:at:kern: calledBy: FormCanvas drawString:from:to:in:font:color: 
+displayString:on:from:to:at:kern: calledBy: FormCanvas drawString:from:to:in:font:color:underline:underlineColor:strikethrough:strikethroughColor: 
+displayUnderlineOn:from:to: calledBy: FormCanvas drawString:from:to:in:font:color:underline:underlineColor:strikethrough:strikethroughColor: 
+doubleClick:fromMorph: calledBy: Morph doubleClick: 
+doubleClickTimeout:fromMorph: calledBy: Morph doubleClickTimeout: 
+drawingClass calledBy: PasteUpMorph extractScreenRegion:andPutSketchInHand: 
+drawingClass calledBy: PasteUpMorph grabDrawingFromScreen: 
+drawingClass calledBy: PasteUpMorph showImage: 
+editor calledBy: Morph tabHitWithEvent: 
+emphasis: calledBy: Morph addEmbeddingMenuItemsTo:hand: 
+expandFullBoundsForDropShadow: calledBy: Morph outerBounds 
+explore calledBy: ConfigurationOfMorphicCore class validate 
+flushLayoutCache calledBy: Morph layoutChanged 
+generateDropFilesEvent: calledBy: HandMorph processEvents 
+group: calledBy: WorldState class mostUsedToolsOn: 
+group: calledBy: WorldState class quitItemsOn: 
+handleEvent:from: calledBy: HandMorph handleEvent: 
+handleEvent:from: calledBy: HandMorph processEvents 
+homeIcon calledBy: PasteUpMorph icon 
+icon: calledBy: Morph addDebuggingItemsTo:hand: 
+icon: calledBy: Morph addEmbeddingMenuItemsTo:hand: 
+icon: calledBy: Morph addExportMenuItems:hand: 
+icon: calledBy: Morph buildDebugMenu: 
+icon: calledBy: Morph buildMetaMenu: 
+icon: calledBy: WorldMorph contentsMenu: 
+icon: calledBy: WorldState class helpOn: 
+icon: calledBy: WorldState class mostUsedToolsOn: 
+icon: calledBy: WorldState class quitItemsOn: 
+icon: calledBy: WorldState class screenShotCommandOn: 
+icons calledBy: Morph addDebuggingItemsTo:hand: 
+icons calledBy: Morph addExportMenuItems:hand: 
+icons calledBy: Morph buildDebugMenu: 
+icons calledBy: Morph buildMetaMenu: 
+icons calledBy: PasteUpMorph icon 
+icons calledBy: WorldState class helpOn: 
+icons calledBy: WorldState class quitItemsOn: 
+icons calledBy: WorldState class screenShotCommandOn: 
+indexForInserting:at:in: calledBy: Morph acceptDroppingMorph:event: 
+initWithTarget: calledBy: Canvas reset 
+innerTarget calledBy: Morph blueButtonDown: 
+inspect calledBy: MorphExtension inspectElement 
+inspect: calledBy: Morph inspectInMorphic: 
+inspectWithLabel: calledBy: Morph inspectOwnerChain 
+inspector calledBy: Morph inspectInMorphic: 
+installOn:foregroundColor:backgroundColor: calledBy: FormCanvas drawString:from:to:at:font:color: 
+installOn:foregroundColor:backgroundColor: calledBy: FormCanvas drawString:from:to:in:font:color: 
+installOn:foregroundColor:backgroundColor: calledBy: FormCanvas drawString:from:to:in:font:color:underline:underlineColor:strikethrough:strikethroughColor: 
+isAdheringToBottom calledBy: Morph clearArea 
+isAdheringToLeft calledBy: Morph clearArea 
+isAdheringToRight calledBy: Morph clearArea 
+isAdheringToTop calledBy: Morph clearArea 
+isCollapsed calledBy: PasteUpMorph collapseAll 
+isCollapsed calledBy: PasteUpMorph expandAll 
+isCollapsed calledBy: PasteUpMorph findWindow: 
+isCollapsed calledBy: WorldMorph contentsMenu: 
+isProportionalLayout calledBy: Morph hasProportionalLayoutString 
+isTableLayout calledBy: Morph hasTableLayoutString 
+item: calledBy: WorldState class helpOn: 
+item: calledBy: WorldState class mostUsedToolsOn: 
+item: calledBy: WorldState class quitItemsOn: 
+item: calledBy: WorldState class screenShotCommandOn: 
+justDroppedInto:event: calledBy: Morph handleDropMorph: 
+justDroppedInto:event: calledBy: Morph slideBackToFormerSituation: 
+keyStroke:fromMorph: calledBy: Morph handleKeystroke: 
+lastItem calledBy: Morph addDebuggingItemsTo:hand: 
+lastItem calledBy: Morph addEmbeddingMenuItemsTo:hand: 
+lastItem calledBy: Morph addExportMenuItems:hand: 
+lastItem calledBy: Morph buildDebugMenu: 
+lastItem calledBy: Morph buildMetaMenu: 
+lastItem calledBy: PasteUpMorph findWindow: 
+lastItem calledBy: WorldMorph contentsMenu: 
+layout:in: calledBy: Morph doLayoutIn: 
+layout:in: calledBy: Morph layoutProportionallyIn: 
+layoutInBounds: calledBy: Morph layoutProportionallyIn: 
+leftFraction calledBy: BorderedMorph linkSubmorphsToSplitters 
+makeMeVisible calledBy: WorldMorph fullRepaintNeeded 
+maxBalloonHelpLineLength calledBy: Morph balloonText 
+maxBalloonHelpLineLength calledBy: Morph setBalloonText: 
+menuBuilder calledBy: WorldState worldMenu 
+menuEntitled: calledBy: WorldState discoveredMenuOn: 
+menuEntitled: calledBy: WorldState worldMenu 
+menuItems calledBy: WorldState fallbackMenuOn: 
+messageList calledBy: Morph showActions 
+methodRefList calledBy: Morph showActions 
+minExtent calledBy: Morph heightToDisplayInList: 
+minExtent calledBy: Morph widthToDisplayInList: 
+monticelloBrowser calledBy: WorldState class mostUsedToolsOn: 
+mouseDown:fromMorph: calledBy: Morph handleMouseDown: 
+mouseDown:fromMorph: calledBy: Morph mouseDown: 
+mouseEnter:fromMorph: calledBy: Morph handleMouseEnter: 
+mouseEnter:fromMorph: calledBy: Morph mouseEnter: 
+mouseEnterDragging:fromMorph: calledBy: Morph handleMouseEnter: 
+mouseEnterDragging:fromMorph: calledBy: Morph mouseEnterDragging: 
+mouseLeave:fromMorph: calledBy: Morph handleMouseLeave: 
+mouseLeave:fromMorph: calledBy: Morph mouseLeave: 
+mouseLeaveDragging:fromMorph: calledBy: Morph mouseLeaveDragging: 
+mouseMove:fromMorph: calledBy: Morph handleMouseMove: 
+mouseMove:fromMorph: calledBy: Morph mouseMove: 
+mouseSelectorsInclude: calledBy: Morph balloonHelpTextForHandle: 
+mouseStillDown:fromMorph: calledBy: Morph handleMouseStillDown: 
+mouseStillDown:fromMorph: calledBy: Morph mouseStillDown: 
+mouseUp:fromMorph: calledBy: Morph handleMouseUp: 
+mouseUp:fromMorph: calledBy: Morph mouseUp: 
+mouseWheel: calledBy: Morph handleMouseWheel: 
+navigateFocusBackward calledBy: Morph class morphNavigationShortcutsOn: 
+navigateFocusForward calledBy: Morph class morphNavigationShortcutsOn: 
+newRectButtonPressedDo: calledBy: Morph doFastReframe: 
+newTransformationMorph calledBy: Morph addFlexShell 
+openClassBrowser calledBy: WorldState class mostUsedToolsOn: 
+openInWindowLabeled:inWorld: calledBy: Morph openInWindowLabeled: 
+openMessageList:name:autoSelect: calledBy: Morph showActions 
+openMonticelloBrowser calledBy: WorldState class mostUsedToolsOn: 
+openTestRunner calledBy: WorldState class mostUsedToolsOn: 
+openWorkspace calledBy: WorldState class mostUsedToolsOn: 
+order: calledBy: WorldState class helpOn: 
+order: calledBy: WorldState class mostUsedToolsOn: 
+order: calledBy: WorldState class quitItemsOn: 
+order: calledBy: WorldState class screenShotCommandOn: 
+passivateTopWindow calledBy: WorldMorph mouseDown: 
+pixelSize calledBy: Morph drawErrorOn: 
+popUpEvent:in: calledBy: Morph adhereToEdge 
+popUpEvent:in: calledBy: Morph invokeMetaMenu: 
+popUpEvent:in: calledBy: PasteUpMorph findWindow: 
+popUpEvent:in: calledBy: PasteUpMorph invokeWorldMenu: 
+popUpEvent:in: calledBy: PasteUpMorph popUpContentsMenu: 
+popUpInWorld: calledBy: Morph yellowButtonActivity: 
+resizeMorph: calledBy: Morph resizeFromMenu 
+rightFraction calledBy: BorderedMorph linkSubmorphsToSplitters 
+scaledIntoFormOfSize: calledBy: Morph iconOrThumbnailOfSize: 
+scheduledTime calledBy: WorldState adjustAlarmTimes: 
+scheduledTime calledBy: WorldState adjustWakeupTimes: 
+scheduledTime calledBy: WorldState alarmSortBlock 
+scheduledTime calledBy: WorldState runLocalStepMethodsIn: 
+scheduledTime calledBy: WorldState stepListSortBlock 
+scheduledTime calledBy: WorldState triggerAlarmsBefore: 
+scheduledTime: calledBy: WorldState adjustAlarmTimes: 
+scheduledTime: calledBy: WorldState adjustWakeupTimes: 
+scheduledTime: calledBy: WorldState runLocalStepMethodsIn: 
+selectAll calledBy: Morph tabHitWithEvent: 
+setTarget: calledBy: Morph addFlexShell 
+settings calledBy: Morph balloonHelpDelayTime 
+settings calledBy: Morph balloonHelpEnabled 
+settings calledBy: Morph balloonText 
+settings calledBy: Morph menuKeyboardControl 
+settings calledBy: Morph setBalloonText: 
+settings calledBy: Morph tabAmongFields 
+shortcut: calledBy: Morph class morphNavigationShortcutsOn: 
+showBalloon:hand: calledBy: HandMorph spawnBalloonFor: 
+showBalloon:hand: calledBy: Morph mouseDownOnHelpHandle: 
+showBalloon:hand: calledBy: Morph showBalloon: 
+smallDebugIcon calledBy: Morph addDebuggingItemsTo:hand: 
+smallExportIcon calledBy: Morph addExportMenuItems:hand: 
+smallHelpIcon calledBy: WorldState class helpOn: 
+smallInspectItIcon calledBy: Morph buildDebugMenu: 
+smallInspectItIcon calledBy: Morph buildMetaMenu: 
+smallQuitIcon calledBy: WorldState class quitItemsOn: 
+smallSaveAsIcon calledBy: WorldState class quitItemsOn: 
+smallSaveIcon calledBy: WorldState class quitItemsOn: 
+smallScreenshotIcon calledBy: WorldState class screenShotCommandOn: 
+splitsTopAndBottom calledBy: BorderedMorph linkSubmorphsToSplitters 
+splitters calledBy: BorderedMorph linkSubmorphsToSplitters 
+splitters calledBy: BorderedMorph removePaneSplitters 
+startDrag:fromMorph: calledBy: Morph startDrag: 
+staysUpWhenMouseIsDownIn: calledBy: HandMorph removeHaloFromClick:on: 
+systemWindows calledBy: PasteUpMorph closeAllWindowsDiscardingChanges 
+taskbarIcon calledBy: WorldMorph contentsMenu: 
+taskbarIcon calledBy: WorldState class mostUsedToolsOn: 
+taskbars calledBy: PasteUpMorph bringWindowsFullOnscreen 
+tools calledBy: Morph inspectInMorphic: 
+tools calledBy: Morph showActions 
+tools calledBy: WorldState class mostUsedToolsOn: 
+tools calledBy: WorldState fallbackMenuOn: 
+topFraction calledBy: BorderedMorph linkSubmorphsToSplitters 
+topWindow calledBy: PasteUpMorph currentWindow 
+updateBounds calledBy: PasteUpMorph restoreMainDockingBarDisplay 
+waitForClicksOrDrag:event:selectors:threshold: calledBy: HandMorph waitForClicksOrDrag:event: 
+waitForClicksOrDrag:event:selectors:threshold: calledBy: Morph blueButtonDown: 
+waitForClicksOrDrag:event:selectors:threshold: calledBy: PasteUpMorph mouseDown: 
+width:color: calledBy: BorderStyle class color:width: 
+width:color: calledBy: BorderStyle class thinGray 
+width:color: calledBy: BorderStyle class width: 
+width:color: calledBy: BorderedMorph borderStyle 
+width:color: calledBy: BorderedMorph borderStyle: 
+width:color: calledBy: Morph borderStyle: 
+withForm: calledBy: PasteUpMorph extractScreenRegion:andPutSketchInHand: 
+withForm: calledBy: PasteUpMorph grabDrawingFromScreen: 
+withForm: calledBy: PasteUpMorph showImage: 
+withSeparatorAfter calledBy: WorldState class helpOn: 
+withSeparatorAfter calledBy: WorldState class mostUsedToolsOn: 
+workspace calledBy: WorldState class mostUsedToolsOn: 
+writeBMPfileNamed: calledBy: Morph exportAsBMP 
+writeJPEGfileNamed: calledBy: Morph exportAsJPEG 
+```
 
 
