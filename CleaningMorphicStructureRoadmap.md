@@ -35,11 +35,18 @@ Solutions:
 
 	creates another dependencies to Morphic-Widgets-Windows
 
+###slideBackToFormerSituation
 There is also
 
-    slideBackToFormerSituation: that could be moved to morphic-base because it refers to transformation morph.
+slideBackToFormerSituation: that could be moved to morphic-base because it refers to transformation morph.
+    * we can remove this bad animration
     
+### Menu/Iconic button
+    * MenuMorph[Morphic-base] refers to IconicButton[Morphic-Widgets-Basic]
     
+### Morphic-Base depends on Morphic-Widgets-Basic
+	because ToggleMenuItemMorph>>offImage [Morphic-Base] refers to CheckboxButtonMorph [ Morphic-Widgets-Basic]
+
 
 
 
