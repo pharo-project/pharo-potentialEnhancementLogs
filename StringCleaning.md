@@ -1,4 +1,4 @@
-This is version v1 21 May 2014 of the roadmap for SystemLogger
+This is version v1 21 May 2014 of the roadmap for String cleaning
 
 ###candidates for removal.
 
@@ -31,5 +31,12 @@ vs
 		1 to: self size do: [:i | string at: i put: (self at: i)].
 		^string
 
+### rename
 
+* asSmalltalkComment -> asComment
+* asUncommentedSmalltalkCode -> asUncommentedCode
+
+* endsWith: -> isEndingWith:
+
+* Move convertToSystemString to ZipArchive for the moment
 
