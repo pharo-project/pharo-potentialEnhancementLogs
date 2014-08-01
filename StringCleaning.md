@@ -5,7 +5,7 @@ This is version v1 21 May 2014 of the roadmap for String cleaning
 
 ### renames
 
-### recatecorize
+### recategorize
 
 * lastIndexofPKSignature should be package in compression.
 * beginsWithEmpty: prefix caseSensitive: aBoolean -> beginsWith: prefix caseSensitive: aBoolean
