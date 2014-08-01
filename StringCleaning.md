@@ -11,7 +11,7 @@ This is version v1 21 May 2014 of the roadmap for String cleaning
 
 * [X] asSmalltalkComment -> asComment
 * [X] asUncommentedSmalltalkCode -> asUncommentedCode
-* Move convertToSystemString to ZipArchive for the moment
+* [X} Move convertToSystemString to ZipArchive for the moment (moved to compression package)
 
 * endsWith: -> isEndingWith:   lots of senders, coherent with startsWith: and SequenceableCollection
 
