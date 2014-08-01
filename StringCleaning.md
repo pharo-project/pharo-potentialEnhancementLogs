@@ -2,8 +2,20 @@ This is version v1 21 May 2014 of the roadmap for String cleaning
 
 ### candidates for removal.
 * [ ] endOfParagraphBefore:
+* tabDelimitedFieldsDo: no sender
+* splitInteger (deprecated)
+* padded: leftOrRight to: length with: char (depreacted
+* do: aBlock toFieldNumber: aNumber
+
 
 ### renames
+ * withFirstCharacterDownshifted -> uncapitalized
+ * findBetweenSubStrs: delimiters -> findBetweenSubStrings:
+ * skipAnySubStr: delimiters startingAt: start -> skipAnySubStrings: delimiters startingAt: start 
+ * padLeftTo: length with: char -> paddedLeftTo: length with: char 
+ * pad* -> padded* (with deprecation)
+ * occursInWithEmpty: prefix caseSensitive: aBoolean  -> kill kill
+ 
 
 ### recategorize
 
@@ -17,6 +29,10 @@ This is version v1 21 May 2014 of the roadmap for String cleaning
 - withSqueakLineEndings (CR = mac convention)
 - withInternetLineEndings (CRLF = windows convention… but why would that be internet convention?)
 - replace withCR with an expandSpecialCharacters following the C \n \r
+- It would be nice to have comparators that can be passed around. Right now compare:with:collated: is expected an array. To think about it.
+
+
+
 
 ### look at copy usage
 
