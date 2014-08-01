@@ -33,6 +33,10 @@ vs
 		^string
 
 
+asLowercase is really fast because it uses the table of string for the first 256 characters
+
+
+
 ## done
 
 ### candidates for removal.
