@@ -7,6 +7,7 @@ This is version v1 21 May 2014 of the roadmap for String cleaning
 
 ### recatecogerize
 * lastIndexofPKSignature should be package in compression.
+* beginsWithEmpty: prefix caseSensitive: aBoolean -> beginsWith: prefix caseSensitive: aBoolean
 * instead of asPluralBasedOn: should be removed and a small class copying the ruby one should be created.
 
 ### To further examinate
