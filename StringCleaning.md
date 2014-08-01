@@ -1,16 +1,13 @@
 This is version v1 21 May 2014 of the roadmap for String cleaning
 
-###candidates for removal.
+### candidates for removal.
 
-* asLegalSelector
-* asIdentifier:
-* aPathName
+* [X] asLegalSelector
+* [X] asIdentifier:
+* [X] aPathName
 
-	asPathName
-	
-		^ self.
+### look at copy usage
 
-###look at copy usage 
 the way string are copied is a bit inconsistent some uses copy other new:
 
 
