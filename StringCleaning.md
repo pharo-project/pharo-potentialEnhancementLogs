@@ -1,15 +1,10 @@
 This is version v1 21 May 2014 of the roadmap for String cleaning
 
 ### candidates for removal.
-
-* [X] asLegalSelector
-* [X] asIdentifier:
-* [X] aPathName
 * [ ] endOfParagraphBefore:
 
 ### renames
 
-* [ ] endsWith: -> isEndingWith:   lots of senders, coherent with startsWith: and SequenceableCollection
 
 ### To further examinate
 
@@ -51,3 +46,4 @@ vs
 * [X] asSmalltalkComment -> asComment
 * [X] asUncommentedSmalltalkCode -> asUncommentedCode
 * [X] Move convertToSystemString to ZipArchive for the moment (moved to compression package)
+* [X] endsWith: -> isEndingWith: We will not do it!!! It was a nice idea but...  lots of senders, coherent with startsWith: and SequenceableCollection
