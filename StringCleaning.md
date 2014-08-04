@@ -1,5 +1,3 @@
-This is version v1 21 May 2014 of the roadmap for String cleaning
-
 ### candidates for removal.
 * [ ] endOfParagraphBefore:
 * tabDelimitedFieldsDo: no sender
