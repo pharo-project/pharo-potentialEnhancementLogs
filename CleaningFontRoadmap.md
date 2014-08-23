@@ -22,21 +22,24 @@ So I thought that may be this should be in the same classes. So may be I should 
 
   * When FreeType is on, TextStyle default should not return a StrikeFont
 	https://pharo.fogbugz.com/default.asp?13152
+	@JurajKubelka: I have raised a question on the FogBugz.
 
-  * Comment of FreeTypeProvider refers to FileDirectory and it should not 
+  * [Done - 13153] Comment of FreeTypeProvider refers to FileDirectory and it should not 
 	https://pharo.fogbugz.com/default.asp?13153
 
-  * Move embedded fonts from Freetype package into separate package
+  * [Done - 13185] Move embedded fonts from Freetype package into separate package
 	https://pharo.fogbugz.com/default.asp?13185
 
 
 ### EmbeddedFreetypeFont
 
-EmbeddedFreetypeFont should be renamed as EmbeddedFreeTypeFontDescription
+ [Done - 13185] EmbeddedFreetypeFont should be renamed as EmbeddedFreeTypeFontDescription
 
 ###FreeType-Fonts-SourceCode
 
 FreeType-Fonts-SourceCode should be moved out FreeType,	may be we should move it to FontInfrastructure
+
+@JurajKubelka: In a slice for 13185 it is moved to EmbeddedFreeType. Is it OK?
 
 ### FontSet sucks
 
