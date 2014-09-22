@@ -10,6 +10,10 @@ One of the core problem is described by the following problem
 
    * Step 3- FT is set on, default font is still a strike font
 	
+	
+### License for StrikeFont	
+Now that the Classes from which the DejaVu StrikeFont instances were created have been removed from the image, where do we keep the required Copyright notices?
+http://dejavu-fonts.org/wiki/index.php?title=License
 
 ### Question
 I did a first version where I added a kind of helper class to StandardFonts so that we could get strikeFonts and freetype font separetly handled. But I was the impression that we need also the same when collecting existing fonts.
