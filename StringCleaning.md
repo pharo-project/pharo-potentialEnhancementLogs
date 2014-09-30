@@ -1,11 +1,3 @@
-### candidates for removal.
-* [ ] endOfParagraphBefore:
-* tabDelimitedFieldsDo: no sender
-* splitInteger (deprecated)
-* padded: leftOrRight to: length with: char (depreacted
-* do: aBlock toFieldNumber: aNumber
-
-
 ### renames
  * withFirstCharacterDownshifted -> uncapitalized
  * findBetweenSubStrs: delimiters -> findBetweenSubStrings:
@@ -64,6 +56,12 @@ asLowercase is really fast because it uses the table of string for the first 256
 * [X] asLegalSelector
 * [X] asIdentifier:
 * [X] aPathName
+* [X] [submitted in in 14094](https://pharo.fogbugz.com/f/cases/14094)
+    * endOfParagraphBefore:
+    * tabDelimitedFieldsDo: no sender
+    * splitInteger (deprecated)
+    * padded: leftOrRight to: length with: char (depreacted
+    * do: aBlock toFieldNumber: aNumber
 
 ### renames
 
