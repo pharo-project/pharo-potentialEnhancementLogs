@@ -6,8 +6,17 @@ Original author: Stéphane Ducasse
 Last modifier: Stéphane Ducasse
 
 
-###menu notes
+##menu notes
 
+
+## MenuMorph>>title: and MenuMorph>>addTitle:
+
+[Done in 14122]
+MenuMorph>>title: is just a call to addTitle: and it is blurry because window defines also title:
+So I suggest to deprecate the title: methods.
+
+
+###enablement selector
 
 
 enablementSelector: is usually used with a selector or a block
@@ -307,3 +316,17 @@ and we still have add:selector:....
 
 ### creating ToggleMenuItem
 We are only creating ToggleMenuItem so we should merge the class with its superclass.
+
+
+### PluggableMenuSpec and MenuSpec
+
+-- DONE in 14117 
+	MenuSpec looks like hopeless with simply two attributes.
+	PluggableMenuSpec is not a subclass of menuSpec.
+	We should merge MenuSpec with its subclass PluggableMenuItemSpec.
+
+--rename Pluggable into Plain
+	PluggableMenuSpec into MenuSpec
+	PluggbaleMenuItemSpec into MenuItemSpec
+	
+	
