@@ -95,6 +95,15 @@ mainInspectSubMenu: aMenu
 		target: self ;
 		selector: #exploreSelectedObject;
 		addItem
+		
+mainInspectSubMenu: aMenu 
+	aMenu buildItem: [ :item |
+		item
+			itemLabel: 'Inspect (i)' translated ;
+			target: self ;
+			selector: #inspectSelectedObjectInNewWindow ].
+
+
 
 ### MenuMorph should use submorph but items
 Menumorph sometimes use items sometimes submorphs and this is ugly and can led to many bugs.
