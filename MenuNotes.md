@@ -361,3 +361,7 @@ Note that MenuSpec has add:action: but this is an internal encoding that uses a 
 
 - [DONE] addList: has a variant addTranslatedList: that is not used. We should merge them and fix all the senders.
 
+### Handled translated for add:submenu and add:icon:subMenu:
+
+- [DONE] add: each asString translated selector:  argument:
+- [DONE] add: 'export...' translated icon:  subMenu: 
