@@ -90,13 +90,19 @@ mainInspectSubMenu: aMenu
 ```
 Esteban proposed to use blocks
 
->mainInspectSubMenu: aMenu 
->	aMenu buildItem: [ :item |
->		item
->			itemLabel: 'Inspect (i)' translated ;
->			target: self ;
->			selector: #inspectSelectedObjectInNewWindow ].
-			
+```	
+mainInspectSubMenu: aMenu 
+	aMenu buildItem: [ :item |
+		item
+			itemLabel: 'Inspect (i)' translated ;
+			target: self ;
+			selector: #inspectSelectedObjectInNewWindow ].
+	aMenu buildItem: [:item |
+		item
+			itemLabel: 'Explore (I)' translated ;
+			target: self ;
+			selector: #exploreSelectedObject ]
+```				
 
 In fact with the block this is super heavy. I understand the idea of esteban: using the structure
 of the block to make sure that the right message is sent at the end. But this is really heavy.
@@ -109,7 +115,7 @@ Menumorph should only use items! (submorphs is an implementation details.)
 	
 	
 This kind of code sucks!
-
+```
 lastItem
 	submorphs reverseDo: [ :each |
 			(each isKindOf: MenuItemMorph) ifTrue: [ ^each ] ].
@@ -127,13 +133,14 @@ addLine
 	(self lastSubmorph isKindOf: MenuLineMorph)
 		ifFalse: [^ self addMorphBack: MenuLineMorph new].
 	^ nil	
-
+````
 
 menuItems should hold all the menuitems and items should hold only the menu
 	
 ### better lineMorph avoiding isKindOf: use
 to avoid to have two lines that follows each other the code check their types!
 
+```
 MenuMorph>>addLine
 	"Append a divider line to this menu. Suppress duplicate lines."
 	self hasItems
@@ -142,9 +149,11 @@ MenuMorph>>addLine
 		ifFalse: [^ self addMorphBack: MenuLineMorph new].
 	^ nil
 
+```
+
 It would be better to add a protocol.
 
-
+```
 MenuMorph>>addLine
 	"Append a divider line to this menu. Suppress duplicate lines."
 	self hasItems
@@ -152,12 +161,13 @@ MenuMorph>>addLine
 	(self lastItem acceptDuplicates)
 		ifTrue: [^ self addMorphBack: MenuLineMorph new].
 	^ nil
-
+```
 
 ### Title management is a hack
 The first step would be to put an instance variable titleString in MenuMorph 
 and revisit such kind of code.
 
+```
 MenuMorph>>updateColor
 	"Update the color of the menu."
 
@@ -224,8 +234,7 @@ MenuMorph>>addTitle: aString icon: aForm
 	title on: #mouseDown send: #mouseDownInTitle: to: self.
 	(self hasProperty: #needsTitlebarWidgets)
 		ifTrue: [ self addStayUpIcons ]	
-		
-		
+				
 MenuMorph>>addStayUpIcons
 	"Add the titlebar with buttons."
 	
@@ -280,12 +289,12 @@ MenuMorph>>addStayUpIcons
 	self setProperty: #hasTitlebarWidgets toValue: true.
 	self removeProperty: #needsTitlebarWidgets.
 	self removeStayUpItems		
-	
+```
+
 
 ### we deprecated add: aString target: aTarget action: aSymbol
-we deprecated add: aString target: aTarget action: aSymbol
-but add:action: is still used!
-and we still have add:selector:....
+We deprecated add: aString target: aTarget action: aSymbol because it was redundant with add:target:selector:
+but add:action: is still used. We should rename it into add:selector:
 
 
 ### creating ToggleMenuItem
@@ -293,35 +302,30 @@ We are only creating ToggleMenuItem so we should merge the class with its superc
 
 
 ### should check addList: and fromArray: 
--- fromArray: is far from an exciting class creation message.
--- addList: has a variable addTranslatedList: that is not used. We should merge them and fix all the senders.
-
+- fromArray: is far from an exciting class creation message.
+- addList: has a variable addTranslatedList: that is not used. We should merge them and fix all the senders.
 
 
 ## Done
 
 ### MenuMorph>>title: and MenuMorph>>addTitle:
 
-[Done in 14122]
-MenuMorph>>title: is just a call to addTitle: and it is blurry because window defines also title:
+- [Done in 14122] MenuMorph>>title: is just a call to addTitle: and it is blurry because window defines also title:
 So I suggest to deprecate the title: method and keep addTitle:. addTitle: is better because it really suggests what it does: adding a title because we can have menu without title.
 
 
 ### PluggableMenuSpec and MenuSpec
 
--- DONE in 14117 
-	MenuSpec looks like hopeless with simply two attributes.
+- DONE in 14117 MenuSpec looks like hopeless with simply two attributes.
 	PluggableMenuSpec is not a subclass of menuSpec.
 	We should merge MenuSpec with its subclass PluggableMenuItemSpec.
 
--- DONE rename Pluggable into Plain
-	PluggableMenuSpec into MenuSpec
-	PluggbaleMenuItemSpec into MenuItemSpec
+- DONE rename Pluggable into Plain PluggableMenuSpec into MenuSpec PluggbaleMenuItemSpec into MenuItemSpec
 	
 ###translated should be handled inside the add:....
-instead of 
+Instead of 
 
-
+```
 mainInspectSubMenu: aMenu 
 	aMenu 
 		add: 'Inspect (i)' translated
@@ -332,16 +336,13 @@ mainInspectSubMenu: aMenu
 		add: 'Explore (I)' translated
 		target: self
 		selector: #exploreSelectedObject.
+```
 
 the translated method should be somewhere inside the add:target..... method.
 
+We handled addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSymbol enablementSelector: enableSymbol argumentList: argList
 
-
-
-
-apparently in 
-addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSymbol enablementSelector: enableSymbol argumentList: argList
-
+```
 addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSymbol enablementSelector: enableSymbol argumentList: argList
 	"Append a menu item with the given label. If the item is selected, it will send the given selector to the target object."
 
@@ -354,4 +355,4 @@ addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSym
 		getStateSelector: stateSymbol;
 		enablementSelector: enableSymbol.
 	^ self addMenuItem: item.
-
+```
