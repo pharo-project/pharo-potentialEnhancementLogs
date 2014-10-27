@@ -12,7 +12,7 @@ Last modifier: Stéphane Ducasse
 
 enablementSelector: is usually used with a selector or a block
 this leads to the following kind of code:
-
+```
 Toggle>>isEnabled
 	"Answer whether the item is enabled."
 	|state|
@@ -22,7 +22,7 @@ Toggle>>isEnabled
 		ifFalse: [self enablementSelector value].
 	self isEnabled: state.
 	^state
-	
+```	
 	
 ### reducing API of MenuMorph
 There are far too many add methods in MenuMorph.
