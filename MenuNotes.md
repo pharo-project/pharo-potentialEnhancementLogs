@@ -28,14 +28,15 @@ Toggle>>isEnabled
 There are far too many add methods in MenuMorph.
 To reduce addToggle and others, one idea could be to use factory
 
->MenuMorph 
->	toggleItem
->		add: action
->		target:...
+```
+MenuMorph 
+	toggleItem
+		add: action
+		target:...
 		
->MenuMorph
->	updatingItem
-	
+MenuMorph
+	updatingItem
+```	
 	
 ### Removing rarely used methods
 
@@ -44,49 +45,49 @@ To reduce addToggle and others, one idea could be to use factory
 
 ### Rethinking the item creation API
 
-
 Instead of having an explosion of combinations
--add: aString target: target selector: aSymbol argumentList: argList
--add: aString target: target selector: aSymbol argument: arg
--addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSymbol enablementSelector: enableSymbol argumentList: argList
+- add: aString target: target selector: aSymbol argumentList: argList
+- add: aString target: target selector: aSymbol argument: arg
+- addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSymbol enablementSelector: enableSymbol argumentList: argList
 
 We could have 
->	aMenuMorph
->		itemLabel: aString;
->		...
->		addItem.
-	
+```
+	aMenuMorph
+		itemLabel: aString;
+		...
+		addItem.
+```
 or
->aMenuItem new
->	label: aString;
->	...
->   aMenuMorph addMenuItem: aMenuItem
+```
+aMenuItem new
+	label: aString;
+	...
+   aMenuMorph addMenuItem: aMenuItem
 
+mainInspectSubMenu: aMenu 
+	aMenu 
+		add: 'Inspect (i)' translated
+		target: self
+		selector: #inspectSelectedObjectInNewWindow.
+				
+	aMenu
+		add: 'Explore (I)' translated
+		target: self
+		selector: #exploreSelectedObject.
 
->mainInspectSubMenu: aMenu 
->	aMenu 
->		add: 'Inspect (i)' translated
->		target: self
->		selector: #inspectSelectedObjectInNewWindow.
->				
->	aMenu
->		add: 'Explore (I)' translated
->		target: self
->		selector: #exploreSelectedObject.
-
->mainInspectSubMenu: aMenu 
->	aMenu 
->		itemLabel: 'Inspect (i)' translated ;
->		target: self ;
->		selector: #inspectSelectedObjectInNewWindow;
->		addItem.
->				
->	aMenu
->		itemLabel: 'Explore (I)' translated ;
->		target: self ;
->		selector: #exploreSelectedObject;
->		addItem
-
+mainInspectSubMenu: aMenu 
+	aMenu 
+		itemLabel: 'Inspect (i)' translated ;
+		target: self ;
+		selector: #inspectSelectedObjectInNewWindow;
+		addItem.
+				
+	aMenu
+		itemLabel: 'Explore (I)' translated ;
+		target: self ;
+		selector: #exploreSelectedObject;
+		addItem
+```
 Esteban proposed to use blocks
 
 >mainInspectSubMenu: aMenu 
