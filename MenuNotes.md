@@ -1,19 +1,12 @@
-Here are some notes taken when cleaning Menu.
-More should be done.
+Here are some notes taken when cleaning Menu. This is work in progress.
 
 Date of last moditication: 30 September 2014
 Original author: Stéphane Ducasse
 Last modifier: Stéphane Ducasse
 
 
-##menu notes
+## Todo and notes
 
-
-## MenuMorph>>title: and MenuMorph>>addTitle:
-
-[Done in 14122]
-MenuMorph>>title: is just a call to addTitle: and it is blurry because window defines also title:
-So I suggest to deprecate the title: methods.
 
 
 ###enablement selector
@@ -49,22 +42,22 @@ MenuMorph
 	
 ### Removing rarely used methods
 
-addWithLabel: aLabel enablement: anEnablementSelector action: aSymbol
+- addWithLabel: aLabel enablement: anEnablementSelector action: aSymbol
 
 
 ### Rethinking the item creation API
 
 
 Instead of having an explosion of combinations
-	add: aString target: target selector: aSymbol argumentList: argList
-	add: aString target: target selector: aSymbol argument: arg
-	addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSymbol enablementSelector: enableSymbol argumentList: argList
+- add: aString target: target selector: aSymbol argumentList: argList
+-	add: aString target: target selector: aSymbol argument: arg
+-	addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSymbol enablementSelector: enableSymbol argumentList: argList
 
 We could have 
-	aMenuMorph
-		itemLabel: aString;
-		...
-		addItem.
+>	aMenuMorph
+>		itemLabel: aString;
+>		...
+>		addItem.
 	
 or aMenuItem new
 	label: aString;
@@ -287,8 +280,46 @@ MenuMorph>>addStayUpIcons
 	self removeProperty: #needsTitlebarWidgets.
 	self removeStayUpItems		
 	
+
+### we deprecated add: aString target: aTarget action: aSymbol
+we deprecated add: aString target: aTarget action: aSymbol
+but add:action: is still used!
+and we still have add:selector:....
+
+
+### creating ToggleMenuItem
+We are only creating ToggleMenuItem so we should merge the class with its superclass.
+
+
+### should check addList: and fromArray: 
+-- fromArray: is far from an exciting class creation message.
+-- addList: has a variable addTranslatedList: that is not used. We should merge them and fix all the senders.
+
+
+
+## Done
+
+### MenuMorph>>title: and MenuMorph>>addTitle:
+
+[Done in 14122]
+MenuMorph>>title: is just a call to addTitle: and it is blurry because window defines also title:
+So I suggest to deprecate the title: method and keep addTitle:. addTitle: is better because it really suggests what it does: adding a title because we can have menu without title.
+
+
+### PluggableMenuSpec and MenuSpec
+
+-- DONE in 14117 
+	MenuSpec looks like hopeless with simply two attributes.
+	PluggableMenuSpec is not a subclass of menuSpec.
+	We should merge MenuSpec with its subclass PluggableMenuItemSpec.
+
+-- DONE rename Pluggable into Plain
+	PluggableMenuSpec into MenuSpec
+	PluggbaleMenuItemSpec into MenuItemSpec
+	
 ###translated should be handled inside the add:....
 instead of 
+
 
 mainInspectSubMenu: aMenu 
 	aMenu 
@@ -302,6 +333,9 @@ mainInspectSubMenu: aMenu
 		selector: #exploreSelectedObject.
 
 the translated method should be somewhere inside the add:target..... method.
+
+
+
 
 
 apparently in 
@@ -320,30 +354,3 @@ addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSym
 		enablementSelector: enableSymbol.
 	^ self addMenuItem: item.
 
-### we deprecated add: aString target: aTarget action: aSymbol
-we deprecated add: aString target: aTarget action: aSymbol
-but add:action: is still used!
-
-and we still have add:selector:....
-
-
-### creating ToggleMenuItem
-We are only creating ToggleMenuItem so we should merge the class with its superclass.
-
-
-### should check addList: and fromArray: 
--- fromArray: is far from an exciting class creation message.
--- addList: has a variable addTranslatedList: that is not used. We should merge them and fix all the senders.
-
-### PluggableMenuSpec and MenuSpec
-
--- DONE in 14117 
-	MenuSpec looks like hopeless with simply two attributes.
-	PluggableMenuSpec is not a subclass of menuSpec.
-	We should merge MenuSpec with its subclass PluggableMenuItemSpec.
-
--- DONE rename Pluggable into Plain
-	PluggableMenuSpec into MenuSpec
-	PluggbaleMenuItemSpec into MenuItemSpec
-	
-	
