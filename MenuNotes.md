@@ -13,16 +13,15 @@ Last modifier: Stéphane Ducasse
 enablementSelector: is usually used with a selector or a block
 this leads to the following kind of code:
 
->Toggle>>isEnabled
->	"Answer whether the item is enabled."
->	
->	|state|
->	self enablementSelector ifNil: [^super isEnabled].
->	state := self enablementSelector isSymbol
->		ifTrue: [self target perform: self enablementSelector]
->		ifFalse: [self enablementSelector value].
->	self isEnabled: state.
->	^state
+Toggle>>isEnabled
+	"Answer whether the item is enabled."
+	|state|
+	self enablementSelector ifNil: [^super isEnabled].
+	state := self enablementSelector isSymbol
+		ifTrue: [self target perform: self enablementSelector]
+		ifFalse: [self enablementSelector value].
+	self isEnabled: state.
+	^state
 	
 	
 ### reducing API of MenuMorph
