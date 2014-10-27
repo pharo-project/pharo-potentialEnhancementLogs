@@ -224,3 +224,97 @@ I wonder why CheckboxButtonMorph has to be a subclass of ThreePhaseButtonMorph (
 
 I suggest to define 
 	SimpleCheckboxButtonMorph with a simple boolean behavior.
+	
+	
+### Event related
+
+It would be nice to avoid such case statements. 
+
+KeyboardEvent>>sentTo: anObject
+	"Dispatch the receiver into anObject"
+	type == #keystroke ifTrue:[^anObject handleKeystroke: self].
+	type == #keyDown ifTrue:[^anObject handleKeyDown: self].
+	type == #keyUp ifTrue:[^anObject handleKeyUp: self].
+	^super sentTo: anObject.	
+	
+	
+sentTo: anObject
+	"Dispatch the receiver into anObject"
+	type == #mouseOver ifTrue:[^anObject handleMouseOver: self].
+	type == #mouseEnter ifTrue:[^anObject handleMouseEnter: self].
+	type == #mouseLeave ifTrue:[^anObject handleMouseLeave: self].
+	^super sentTo: anObject.
+	
+sentTo: anObject
+	"Dispatch the receiver into anObject"
+	type == #mouseDown ifTrue:[^anObject handleMouseDown: self].
+	type == #mouseUp ifTrue:[^anObject handleMouseUp: self].
+	^super sentTo: anObject		
+	
+	
+	
+##Brainstorming about MVP
+How to fight the selector plague?
+
+We should fix more protocol at the view level (morph).
+Instead of having an extra variable (eg enablementSelector),
+we should impose that the model should answer #isEnabled.
+
+The view knows its model! Not the inverse. 
+
+Toggle>>isEnabled
+	^ self withModelDo: [ :m | m isEnabled ] ifAbsent: [ true ]
+
+donc ici, dans le morph j?ai fixé les choses. 
+On délègue au model le soin de répondre et on 
+simplifie le morph.
+
+ToggleModel>>isEnabled
+	^ enabled ifNil: [ enabled := true ]
+
+ToggleModel>>disable
+	enable := false.
+	self announce: ModelChanged new. ? ou quelque-chose comme ça pour que la/les vue(s) réagisse(nt) "
+
+
+We should think about the default API isEnabled should be part of this API.
+
+WidgetModel>>isEnabled
+	^ enabled ifNil: [ enabled := true ]
+
+WidgetModel>>disable
+	enable := false.
+	self announce: ModelChanged
+
+and ToggleModel should inherit from WidgetModel.
+
+
+Now a cool trick should be that the Toggle have the same API so that the view could also play its own model.
+
+Toggle>>isEnabled
+	^ self model isCurrentlyEnabled
+
+Toggle>>isCurrentlyEnabled
+	...
+
+ToggleModel>>isCurrentlyEnabled
+	?
+
+and 
+
+Toggle new 
+	yourselfAsModel (or initialize it that way).
+	
+	
+	
+		
+	
+	
+## openModal
+
+Apparently UITheme does not handle openModel, it is MorphicUIManager that does it.
+	
+	
+	
+	
+	

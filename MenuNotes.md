@@ -102,6 +102,10 @@ mainInspectSubMenu: aMenu
 			itemLabel: 'Inspect (i)' translated ;
 			target: self ;
 			selector: #inspectSelectedObjectInNewWindow ].
+			
+
+in fact with the block this is super heavy. I understand the idea of esteban: using the structure
+of the block to make sure that the right message is sent at the end. But this is really heavy.
 
 
 
@@ -327,6 +331,10 @@ and we still have add:selector:....
 We are only creating ToggleMenuItem so we should merge the class with its superclass.
 
 
+### should check addList: and fromArray: 
+-- fromArray: is far from an exciting class creation message.
+-- addList: has a variable addTranslatedList: that is not used. We should merge them and fix all the senders.
+
 ### PluggableMenuSpec and MenuSpec
 
 -- DONE in 14117 
@@ -334,7 +342,7 @@ We are only creating ToggleMenuItem so we should merge the class with its superc
 	PluggableMenuSpec is not a subclass of menuSpec.
 	We should merge MenuSpec with its subclass PluggableMenuItemSpec.
 
---rename Pluggable into Plain
+-- DONE rename Pluggable into Plain
 	PluggableMenuSpec into MenuSpec
 	PluggbaleMenuItemSpec into MenuItemSpec
 	
