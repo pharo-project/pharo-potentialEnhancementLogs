@@ -292,18 +292,12 @@ MenuMorph>>addStayUpIcons
 ```
 
 
-### we deprecated add: aString target: aTarget action: aSymbol
-We deprecated add: aString target: aTarget action: aSymbol because it was redundant with add:target:selector:
-but add:action: is still used. We should rename it into add:selector:
 
 
 ### creating ToggleMenuItem
 We are only creating ToggleMenuItem so we should merge the class with its superclass.
 
 
-### should check addList: and fromArray: 
-- fromArray: is far from an exciting class creation message.
-- addList: has a variable addTranslatedList: that is not used. We should merge them and fix all the senders.
 
 
 ## Done
@@ -356,3 +350,14 @@ addToggle: aString target: anObject selector: aSymbol getStateSelector: stateSym
 		enablementSelector: enableSymbol.
 	^ self addMenuItem: item.
 ```
+
+### we deprecated add: aString target: aTarget action: aSymbol
+- [DONE] We deprecated add: aString target: aTarget action: aSymbol because it was redundant with add:target:selector: but add:action: is still used. We should rename it into add:selector:
+
+Note that MenuSpec has add:action: but this is an internal encoding that uses a message send.
+
+### should check addList: and fromArray: 
+- [DONE] fromArray: is far from an exciting class creation message. Added fromList: 
+
+- [DONE] addList: has a variant addTranslatedList: that is not used. We should merge them and fix all the senders.
+
