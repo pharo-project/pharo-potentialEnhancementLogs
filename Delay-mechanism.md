@@ -1,19 +1,19 @@
-The existing Delay class has a few issues:
+The existing Delay class has a few issues.
 
 1. When processes are being suspended/resumed the Morphic interCyclePause: can get stuck in 
 Delay's AccessProtect mutex critical section [Case 13755](https://pharo.fogbugz.com/default.asp?13755). 
-
+<br><br>
 It seems changing thread safety from mutex based to semaphore based fixes this problem.
 
 1. Delay works intermittently when invoked from the command line on a virtual 
-machine [Case 14353](https://pharo.fogbugz.com/default.asp?14353). 
-
+machine [Case 14353](https://pharo.fogbugz.com/default.asp?14353).  
+<br><br> 
 It seems removing the clock rollover check by moving the timer event loop from 
 milliseconds to microseconds fixes this problem.
 
 1. The restart of the timer event loop by ImageCleaner carries forward old suspended delays.  
-This makes it harder to change the implementation, such as from milliseconds to microseconds.
-
+This makes it harder to change the implementation, such as from milliseconds to microseconds. 
+<br><br>
 It seems to me that after ImageCleaner, suspended delay should be empty.
 
 1. Delay uses all shared class variables for the timer event loop, making it hard to create tests 
