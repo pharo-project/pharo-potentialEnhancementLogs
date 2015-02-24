@@ -21,6 +21,32 @@ initialize
 	titleHolder := self class title asValueHolder.
 
 
+aboutText
+
+	^ aboutText value ifNil: [ aboutText value: self class comment ]
+	
+=> 
+
+initialize
+
+	super initialize.
+
+	extentHolder := nil asValueHolder.
+	needRebuild := true asValueHolder.
+	keyStrokesForNextFocusHolder := { KMNoShortcut new } asValueHolder.
+	keyStrokesForPreviousFocusHolder := { KMNoShortcut new } asValueHolder.
+	additionalKeyBindings := Dictionary new.
+	announcer := Announcer new asValueHolder.
+	aboutText := self class comment asValueHolder.
+	windowIcon := nil asValueHolder.
+	window := nil asValueHolder.
+	askOkToClose := false asValueHolder.
+	titleHolder := self class title asValueHolder.
+
+
+
+
+
 # The case of borderWidth and borderColor:
 AbstractWidget>>borderWidth: 
 
