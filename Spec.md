@@ -1,5 +1,27 @@
-# Here are some notes for the simplification of Spec
+ Here are some notes for the simplification of Spec
 
+#ifNotNil plague
+
+There are far too many tests checking for nil after a value is executed. This is because the valueHolder are not initialized correctly. For example in the ComposableModel>>initialize method below
+
+initialize
+
+	super initialize.
+
+	extentHolder := nil asValueHolder.
+	needRebuild := true asValueHolder.
+	keyStrokesForNextFocusHolder := { KMNoShortcut new } asValueHolder.
+	keyStrokesForPreviousFocusHolder := { KMNoShortcut new } asValueHolder.
+	additionalKeyBindings := Dictionary new.
+	announcer := Announcer new asValueHolder.
+	aboutText := nil asValueHolder.
+	windowIcon := nil asValueHolder.
+	window := nil asValueHolder.
+	askOkToClose := false asValueHolder.
+	titleHolder := self class title asValueHolder.
+
+
+# The case of borderWidth and borderColor:
 AbstractWidget>>borderWidth: 
 
 AbstractWidget>>borderColor: 
