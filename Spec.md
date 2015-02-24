@@ -50,7 +50,9 @@ initialize
 
 We should remove aboutText but this is a nice example of bad use of nil as initial value holder value.
 
-Another example that can be fixed:
+
+# rethinking default
+Another example that could be fixed but require some thought is
 
 initialize
 	super initialize.
@@ -67,9 +69,20 @@ initialExtent
 
 	^ 200@500
 
+Now in fact is doing a kind of lookup: first it gives precedence to the model then to the widget when the model does not provide an extent and this is something that we are somehow breaking by imposing that a model has a default. 
 
+MorphicAdapter>>heightToDisplayInList: aList
+	"Return the width of my representation as a list item"
+	
+	self model extent ifNotNil: [:ex | ^ ex y ].
+	self model initialExtent ifNotNil: [:ex | ^ ex y ].
 
-
+	self widget ifNil: [ self buildWithSpec ].
+	self widget 
+		vResizing: #rigid;
+		hResizing: #rigid.
+		
+	^ self widget heightToDisplayInList: aList
 
 
 # The case of borderWidth and borderColor:
