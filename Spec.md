@@ -61,3 +61,19 @@ could be simplified by letting the clients sending whenChangedDo: to the holder
 		aModel imageHolder whenChangedDo: []
 		
 imageHolder is a public property so we can also use imageHolder value
+
+
+# extent of widget
+It would be good to set as invariant that a widget should know its extent. This would avoid this ugly responsTo: messages.
+
+ComposableModel>>ensureExtentFor: widget
+
+	self extent
+		ifNil: [ self initialExtent
+			ifNotNil: [ :ex | 
+				(widget respondsTo: #extent:)
+					ifTrue: [ widget extent: ex ] ] ]
+		ifNotNil: [ :ex | 
+			(widget respondsTo: #extent:)
+				ifTrue: [ widget extent: ex ] ].
+
