@@ -142,6 +142,24 @@ ComposableModel>>ensureExtentFor: widget
 				ifTrue: [ widget extent: ex ] ].
 
 
+# methods to be removed 
+- whenHelpChanged: aBlock 
+- whenBorderWidthChanged: aBlock
+- whenBorderColorChanged: aBlock
+- 
+
+# case for 
+
+ButtonModel>>whenActionPerformedDo: aBlock
+	<api: #event>
+	"set a block to perform after that the button has been aclicked, and its action performed"
+
+	actionPerformedHolder whenChangedDo: aBlock
+
+Here the actionPerformedHolder is just another holder to be able to fire an extra action in addition 
+to others. 
+
+
 
 # ComposableModel>>on: anAnnouncement send: aSelector to: aTarget
 
