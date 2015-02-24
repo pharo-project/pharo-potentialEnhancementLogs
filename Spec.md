@@ -1,5 +1,4 @@
-Here are some notes for the simplification of Spec
----------------------------------------------------
+# Here are some notes for the simplification of Spec
 
 AbstractWidget>>borderWidth: 
 
@@ -19,8 +18,9 @@ Solution:
 - remove borderWidth: from the superclass
 - move it to ButtonModel
 - make it work
----------------------------------------------------
 
+
+# Block Plague
 We often have 
 
 Model>>whenImageChanged: aBlock
