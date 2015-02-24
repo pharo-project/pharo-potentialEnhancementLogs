@@ -1,5 +1,11 @@
  Here are some notes for the simplification of Spec
 
+# Inconsistent instance variables naming
+
+It is really confusing that some variables are named *Holder while other not. So you never know and only the initialize method can tell us.
+
+
+
 #ifNotNil plague
 
 There are far too many tests checking for nil after a value is executed. This is because the valueHolder are not initialized correctly. For example in the ComposableModel>>initialize method below
@@ -30,7 +36,6 @@ aboutText
 initialize
 
 	super initialize.
-
 	extentHolder := nil asValueHolder.
 	needRebuild := true asValueHolder.
 	keyStrokesForNextFocusHolder := { KMNoShortcut new } asValueHolder.
@@ -42,6 +47,26 @@ initialize
 	window := nil asValueHolder.
 	askOkToClose := false asValueHolder.
 	titleHolder := self class title asValueHolder.
+
+We should remove aboutText but this is a nice example of bad use of nil as initial value holder value.
+
+Another example that can be fixed:
+
+initialize
+	super initialize.
+	extentHolder := nil asValueHolder.
+
+should be 
+
+initialize
+	super initialize.
+	extentHolder := self initialExtent asValueHolder.
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+initialExtent
+
+	^ 200@500
+
 
 
 
