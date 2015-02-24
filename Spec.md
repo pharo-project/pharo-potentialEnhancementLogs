@@ -141,3 +141,13 @@ ComposableModel>>ensureExtentFor: widget
 			(widget respondsTo: #extent:)
 				ifTrue: [ widget extent: ex ] ].
 
+
+
+# ComposableModel>>on: anAnnouncement send: aSelector to: aTarget
+
+	self announcer
+		when: anAnnouncement 
+		send: aSelector 
+		to: aTarget
+		
+should be probably renamed when:send:to: to be coherent with announcement API.		
