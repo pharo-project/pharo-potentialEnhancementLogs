@@ -1,6 +1,26 @@
 Here are some notes for the simplification of Spec
 ---------------------------------------------------
 
+AbstractWidget>>borderWidth: 
+
+AbstractWidget>>borderColor: 
+
+do not seem to be used, could make sense on ButtonModel but it does not work.
+
+ButtonModel new 
+	label: 'blbl';
+	borderWidth: 100;
+	borderColor: Color red;
+	openWithSpec
+	
+does not work
+
+Solution:
+- remove borderWidth: from the superclass
+- move it to ButtonModel
+- make it work
+---------------------------------------------------
+
 We often have 
 
 Model>>whenImageChanged: aBlock
