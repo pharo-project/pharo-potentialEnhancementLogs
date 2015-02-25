@@ -177,3 +177,51 @@ to others.
 		to: aTarget
 		
 should be probably renamed when:send:to: to be coherent with announcement API.		
+
+
+
+
+# About architecture Model/Adapter/Widgets
+
+The model (for example ButtonModel) sets some value holder and notification
+First ButtonModel implements label:
+	
+label: aStringOrImageMorph
+	<api: #string getter: #label registration: #whenLabelChangedDo:>
+
+	labelHolder value: aStringOrImageMorph	
+		
+second the initialize is binding the 
+	
+initialize
+	...
+	labelHolder whenChangedDo: [ self changed: #label ].
+	...
+
+In general the adpater is dependent from the model as show in method 
+
+AbstractAdapter>>adapt: aComposableModel
+	model := aComposableModel.
+	aComposableModel addDependent: self.
+	widget := self buildWidget.	
+
+Then the Adapter is the model for the widget (for example MorphicButtonAdapter is the model for PluggableButtonMorph).
+This is usually done that way because the old widgets used to use the changed/update: mechanism.
+
+Now the question is how the update propagates from the model to the widget.
+Since there are this old widgets that need to receive changed:udapte:, and adapter is dependent of the model, its update: method was defined (temporarily probably) as 
+
+AbstractAbstracter>>update: aSymbol
+	self changed: aSymbol	
+
+It means that the changes are then propagated to the widget.
+
+Now an open question is why the update:with: method is defined that way because it shortcut the changed: propagation
+
+AbstractAbstracter>>update: aSymbol with: anArray
+
+	self perform: aSymbol withArguments: anArray	
+	
+
+
+
