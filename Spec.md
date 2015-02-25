@@ -1,5 +1,13 @@
  Here are some notes for the simplification of Spec
 
+# cleaning 
+AbstractAdapter>>buildWidget is old it should not refer anymore to SpecInterpreter
+
+AbstractAdapter>>buildWidget
+
+    ^ self subclassResponsibility
+
+
 # Inconsistent instance variables naming
 
 It is really confusing that some variables are named *Holder while other not. So you never know and only the initialize method can tell us.
