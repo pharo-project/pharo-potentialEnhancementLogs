@@ -13,10 +13,10 @@ In OSWindow handleEvent: anEvent
        OSWindowMorphicEventHandler>>dispatchMorphicEvent: is recreating the morphic events from the OSWindow events.
 
 --------------------------
-We are in migration period.
+Right now we are in migration period.
 
 We should move the logic of the InputEventFetcher to the OSVMWindowDriver (represents the old system
-within the OSWindow frameworks).
+within the OSWindow frameworks). This is in the sense that it would be good to avoid to have two different mechanisms. 
 
 
 OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 
@@ -36,15 +36,19 @@ Probably the UI Process should be responsible to set the fetching process.
 
 
 VMDriver should use
-- input semaphore
-- fetch event
-- convert of to OSWindowEvent	
-- dispatch to the window's handler
+* input semaphore
+* fetch event
+* convert of to OSWindowEvent	
+* dispatch to the window's handler
 
 The three first steps are in Sensor logic.
 
 We should rewrite the HandMorph to act as a windowHandler
 
+
+------------------------------
+WorldMorph>>recreateOSWindow, WorldMorph>>pickMostSuitableWindowDriver, WorldMorph>>checkSession
+should be packaged with OSWindow
 ----------------------------------------------------------------------------------------------
 
 OSSDL2Driver>>processEvent: sdlEvent
