@@ -10,7 +10,9 @@ HandMorph>>processEvents was handling events
 
 In OSWindow handleEvent: anEvent
 -------------------------------------------------------------------
-       OSWindowMorphicEventHandler>>dispatchMorphicEvent: is recreating the morphic events from the OSWindow events.
+
+
+OSWindowMorphicEventHandler>>dispatchMorphicEvent: is recreating the morphic events from the OSWindow events.
 
 --------------------------
 Right now we are in migration period.
@@ -21,8 +23,8 @@ within the OSWindow frameworks). This is in the sense that it would be good to a
 The OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 	should be cleaned.
 
 
-``OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 
-	morphicWorld defer: [ morphicWorld activeHand handleEvent: anEvent ]. ``
+``OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent ``
+``	morphicWorld defer: [ morphicWorld activeHand handleEvent: anEvent ]. ``
 
 This method should rewritten with a more efficient approach. We should remove the use of defer:
 The OSWindowMorphicEventHandler should act similar to the input Event Fetcher process
@@ -64,8 +66,7 @@ the logic should be
 World
 	startUp
 		createWindow
-			setup event processing. The event handler should be the responsibility of OSSystemWindow
-			
+			setup event processing. The event handler should be the responsibility of OSSystemWindow.
 
 Each OSWindow has the event handler as shown below.
 		
@@ -86,10 +87,10 @@ recreateOSWindow
 
 The Driver knows how to create the window. But it does not know when. 
 The client sets up the handler. We can have custom handler for any window.
-		
 
 ------------------------------------------------------------------------------------------------
-After the migration period
+# After the migration period
+
 The Window driver should be responsible to deliver event to consumer similarly 
 
 OSSDL2Driver>>eventLoopProcessWithPlugin
@@ -114,6 +115,7 @@ We can clean and remove all the calling tree calling dispatchMorphicEvent:
 We should probably remove OSSDL2Driver>>eventLoopProcessWithoutPlugin
 
 --------------------------------------------------------------------------------------------------
+# Bypassing BitBlt
 
 We should take advantage about the presence of SDL to bypass the bitblt logic for the rendering.
 
