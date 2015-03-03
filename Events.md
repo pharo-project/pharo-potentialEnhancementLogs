@@ -18,13 +18,11 @@ Right now we are in migration period.
 We should move the logic of the InputEventFetcher to the OSVMWindowDriver (represents the old system
 within the OSWindow frameworks). This is in the sense that it would be good to avoid to have two different mechanisms. 
 
+The OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 	should be cleaned.
 
-OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 
-	should be cleaned.
 
-OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 
-
-	morphicWorld defer: [ morphicWorld activeHand handleEvent: anEvent ]. 
+``OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 
+	morphicWorld defer: [ morphicWorld activeHand handleEvent: anEvent ]. ``
 
 This method should rewritten with a more efficient approach. We should remove the use of defer:
 The OSWindowMorphicEventHandler should act similar to the input Event Fetcher process
