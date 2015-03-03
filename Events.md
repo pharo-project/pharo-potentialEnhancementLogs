@@ -2,13 +2,15 @@ Here is a draft analysis of the possible actions to be done to continue the work
 
 Previous to OSWindow
 --------------------------------------------------------
+Currently the events are fetched via HandMorph>>processEvents
+
 HandMorph>>processEvents was handling events
 	from Sensor which takes them inputEventSensor
 
 
 In OSWindow handleEvent: anEvent
 -------------------------------------------------------------------
-       OSWindowMorphicEventHandler>>dispatchMorphicEvent: is dispatching.
+       OSWindowMorphicEventHandler>>dispatchMorphicEvent: is recreating the morphic events from the OSWindow events.
 
 --------------------------
 We are in migration period.
