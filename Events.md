@@ -121,12 +121,11 @@ We should take advantage about the presence of SDL to bypass the bitblt logic fo
 
 # Windows integration/further work on SDL
 
-- build VM with SDL2 support
 - test SDL2 VM support on windows
 - isolate the legacy VM code and prepare it to for cleaning
-- review the event processing on image side in order to make it more effient
-   - make sure, that UI process setting up the event handling using OSWindow driver
-- as result, we should have a VM that supports both legacy driver and SDL, and image can choose which one to use.
+- review the event processing on image side in order to make it more efficient
+	- make sure, that UI process setting up the event handling using OSWindow driver
 - multiple window support
-   - refactor the event handling mechanism to make sure multiple windows can receive events independently
+	- refactor the event handling mechanism to make sure multiple windows can receive events independently
 - support for direct rendering. Introduce support for direct rendering to SDL surface using Athens.
+	- There is a super small prototype. Do it right!
