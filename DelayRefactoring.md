@@ -4,7 +4,7 @@
 
    For Pharo 4, the delay scheduling was refactored to the instance-side of its own class DelayScheduler, so that isolated instances can be used in the unit tests. [Case 14261](https://pharo.fogbugz.com/default.asp?14261)
 
-2. Previously Delays were scheduled using the millisecond clock that rolls over about every 6 days.  However the clock can drift backwards in OS level virtual machines (e.g. Xen, VirtualBox, VMWare), which badly affected the millisecond clock rollover checks in the delay scheduling.  
+2. Previously Delays were scheduled using the millisecond clock that rolls over about every 6 days.  However the clock can drift backwards in OS level virtual machines (e.g. Xen, VirtualBox, VMWare), which interacted poorly with the millisecond clock rollover checks in the delay scheduling.  
 
    For Pharo 4, DelayMicrosecondScheduler was added and made the default scheduler. The VM microsecond clock rolls over about every 50,000 years and the clock rollover code eliminated.  [Case 14353](https://pharo.fogbugz.com/default.asp?14353). 
 
