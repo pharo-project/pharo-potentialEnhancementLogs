@@ -1,6 +1,6 @@
 # Delay refactoring completed for Pharo 4 
 
-1. Previously Delay scheduling was implemented on the class-side of the Delay, such that any unit tests would interfere with the live system, and the live system would interfere with unit tests - so there were none.  
+1. Previously Delay scheduling was implemented on the class-side of Delay, such that any unit tests would interfere with the live system, and the live system would interfere with unit tests - so there were none.  
 
    For Pharo 4, the delay scheduling was refactored to the instance-side of its own class DelayScheduler, so that isolated instances can be used in the unit tests. [Case 14261](https://pharo.fogbugz.com/default.asp?14261)
 
