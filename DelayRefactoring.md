@@ -6,7 +6,7 @@
 
 2. Previously Delays were scheduled using the millisecond clock that rolls over about every 6 days.  However the clock can drift backwards in OS level virtual machines (e.g. Xen, VirtualBox, VMWare), which interacted poorly with the millisecond clock rollover checks in the delay scheduling.  
 
-   For Pharo 4, DelayMicrosecondScheduler was added which makes use of the microsecond clock that rolls over about every 50,000 years, and the clock rollover code eliminated.  This was made the default delay scheduler. The old implementation was moved to DelayMillisecondScheduler. [Case 14353](https://pharo.fogbugz.com/default.asp?14353). 
+   For Pharo 4, DelayMicrosecondScheduler was added which makes use of the microsecond clock that rolls over about every 50,000 years, and the clock rollover checks eliminated.  This was made the default delay scheduler. The old implementation was moved to DelayMillisecondScheduler. [Case 14353](https://pharo.fogbugz.com/default.asp?14353). 
 
 3. Previously when ImageCleaner would stop and start the delay scheduling, it carried forward scheduled Delays.  This was deemed adverse its purpose of reseting the system, and indeed prevented the live transfer from the millisecond scheduler to the microsecond scheduler.  
 
