@@ -22,7 +22,7 @@
 
 1. Consider the snapshot startup list replacing Delay with DelayScheduler.
 
-2. Consider changing how the delay scheduling is paused during a snapshot. The VM randomly signals the timingSemaphore, and this must not wake up any code, which couldinterfer with the snapshot. AccessProtect is still referenced in the shutdown/startup sequence, which does not align with the experimental delay schedulers makign it redundant. Some possibilities:
+2. Consider changing how the delay scheduling is paused during a snapshot. The VM randomly signals the timingSemaphore, and this must not wake up any code, which couldinterfer with the snapshot. AccessProtect is still referenced in the shutdown/startup sequence, which does not align with the experimental delay schedulers making AccessProtect redundant. Some possibilities:
    * placing a new pausedForSnapshotSemaphore check in the timer event loop 
    * have an inner and outer timer event loop.  The inner loop exits prior to snapshot and then waits on pausedForSnapshotSemaphore. When unpaused the outer loop re-enters the inner loop. 
 
