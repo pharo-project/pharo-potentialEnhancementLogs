@@ -16,7 +16,7 @@
 
     In Pharo 4, this can be avoided in by optionally selecting DelayExperimentalSemaphore as the delay scheduler.  However since this was added late, without broad testing, it retains the "Experimental" tag.  Also added were some other possible solutions DelayExperimentalSpinScheduler and DelayExperimentalCourageousScheduler. [Case 13755](https://pharo.fogbugz.com/default.asp?13755). 
 
-5. Previously when the delay scheduler was not running, the UI loop would lock up stuck in WorldState>>interCyclePause waiting for a delay that was never scheduled.  Introduced Delay>>waitOtherwise: which does not block if its delay is not scheduled, instead continuing execution as if there was no delay.
+5. Previously when the delay scheduler was not running, the UI loop would lock up, stuck in WorldState>>interCyclePause waiting for a delay that was never scheduled.  Introduced Delay>>waitOtherwise: which does not block if its delay is not scheduled, instead continuing execution as if there was no delay.
 
 # Further work for Pharo 5
 
