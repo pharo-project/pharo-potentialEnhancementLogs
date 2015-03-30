@@ -3,8 +3,8 @@
 #### High-level
 - Why the Morph / View Split?
 
-#### BlSpaceMorph
-- Why does it know about the clipboard?
+#### Class-related
+- BlSpaceMorph: Why does it know about the clipboard?
 
 ### Understanding
 BlUniverse - manages BlSpaces
