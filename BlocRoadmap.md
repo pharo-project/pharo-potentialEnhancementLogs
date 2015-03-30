@@ -2,6 +2,8 @@
 
 #### High-level
 - Why the Morph / View Split?
+- Why split event fetcher and handlers?
+- I get moving the event handling logic out of hand, but why not route it back through the hand? Since the hand represents a user, it seems nice and logical that it should symbolically emit the events, even if it delegates the actual work
 
 #### Class-related
 - BlSpaceMorph: Why does it know about the clipboard?
