@@ -8,6 +8,7 @@
 
 #### Class-related
 - BlSpaceMorph: Why does it know about the clipboard?
+- BlMorph: why was `#stepTime` renamed to `#stepPeriod`? Is it a different concept, because otherwise maybe it's not worth it to force users to learn something new...
 
 ### Understanding
 BlUniverse - manages BlSpaces
