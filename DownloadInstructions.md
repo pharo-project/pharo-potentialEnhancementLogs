@@ -20,7 +20,10 @@
 #### Ubuntu
 Follow PPA instructions - but what then? How to launch? Where are the files? Do we have a tutorial on PharoLauncher?
 
-#### Debian
+#### Debian (jessie and later)
+Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
+
+#### Distributions with glibc < 2.15
 1.    Install pre-compiled binary from the [Debian build](https://swing.fit.cvut.cz/jenkins/view/Projects/job/pharo-vm-stable-swing/)
 2.    Install 32-bit libs
   1. Enable 32 bit package installation (http://serverfault.com/a/424484)
