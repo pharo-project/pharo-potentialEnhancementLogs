@@ -18,7 +18,8 @@
 ### Flavors
 
 #### Ubuntu
-Follow PPA instructions - but what then? How to launch? Where are the files? Do we have a tutorial on PharoLauncher?
+- Follow PPA instructions
+- Link to the [Launcher tutorial](https://github.com/SquareBracketAssociates/PharoInProgress/tree/master/PharoLauncherTutorial) once there is a stable artifact
 
 #### Debian (jessie and later)
 Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
