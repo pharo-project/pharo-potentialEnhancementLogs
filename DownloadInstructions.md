@@ -37,6 +37,7 @@ Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
 
 #### 64-bit Systems
 - Worked on Mint, doesn't work in Ubuntu 14.0.4 http://blog.bit-man.guru/2014/09/how-to-run-pharo-30-on-top-of-linux-64.html
+- Ubuntu 14.04 workaround - install pharo-vm-core from ppa
 
 #### Other distributions?
 
