@@ -4,6 +4,8 @@
 
 - the method for different platforms leaves you with different products (e.g. Ubuntu -> Launcher, but Debian -> VM-only)
 - the instructions at http://pharo.org/download are incomplete (e.g. Debian step 2.i.a below)
+- Old Lib C downloads out of date: http://files.pharo.org/vm/pharo/linux/old-libc/ last pharovm-ubuntu804.tar.gz is from 8/28/2013, but most recent swing buld is from 9/2014.
+- http://files.pharo.org/vm/pharo/linux/debian_ubuntu/ - There is a deb package from 2013, and a README saying to try the PPA for Ubuntu, but the folder should just be renamed to Debian, no? Or maybe remove entirely. What is this actually installing? Which Pharo version? 
 
 ### Questions
 - Can we pick up the debian artifact from the [Debian build](https://swing.fit.cvut.cz/jenkins/view/Projects/job/pharo-vm-stable-swing/) and create a launcher on our CI with it?
@@ -34,3 +36,10 @@ Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
 3.    Get an image - we only have the VM so far!
 
 #### Other distributions?
+
+#### Random Snippets
+https://launchpad.net/~pharo/+archive/ubuntu/stable
+https://www.ruby-lang.org/en/documentation/installation/
+
+! PharoLauncher - Our GUI Dashboard
+If you're new to Pharo, the easiest place to start is with our GUI Dashboard, PharoLauncher.
