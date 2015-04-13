@@ -36,8 +36,17 @@ Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
 3.    Get an image - we only have the VM so far!    
 
 #### 64-bit Systems
-- Worked on Mint, doesn't work in Ubuntu 14.0.4 http://blog.bit-man.guru/2014/09/how-to-run-pharo-30-on-top-of-linux-64.html
-- Ubuntu 14.04 workaround - install pharo-vm-core from ppa
+
+##### If no ia32-libs:
+###### Ubuntu 14.04
+workaround - install pharo-vm-core from ppa
+###### Other
+Worked on Mint, doesn't work in Ubuntu 14.0.4 (from http://blog.bit-man.guru/2014/09/how-to-run-pharo-30-on-top-of-linux-64.html)
+```
+  sudo aptitude install lib32z1 lib32ncurses5 lib32bz2-1.0
+  sudo aptitude install libx11-6:i386
+  sudo aptitude install libgl1-mesa-glx:i386
+```
 
 #### Other distributions?
 
