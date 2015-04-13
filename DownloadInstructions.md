@@ -37,6 +37,8 @@ Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
 
 #### 64-bit Systems
 
+Pull from http://forum.world.st/Urgent-Clean-up-Download-Instructions-before-4-0-Release-tp4818938p4819428.html
+
 ##### If no ia32-libs:
 ###### Ubuntu 14.04
 workaround - install pharo-vm-core from ppa
