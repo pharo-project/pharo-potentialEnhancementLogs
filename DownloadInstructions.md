@@ -33,7 +33,10 @@ Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
     1. sudo dpkg --add-architecture i386
     2. sudo apt-get update
   2. sudo aptitude install ia32-libs
-3.    Get an image - we only have the VM so far!
+3.    Get an image - we only have the VM so far!    
+
+#### 64-bit Systems
+- Worked on Mint, doesn't work in Ubuntu 14.0.4 http://blog.bit-man.guru/2014/09/how-to-run-pharo-30-on-top-of-linux-64.html
 
 #### Other distributions?
 
