@@ -11,17 +11,20 @@
 - Can we pick up the debian artifact from the [Debian build](https://swing.fit.cvut.cz/jenkins/view/Projects/job/pharo-vm-stable-swing/) and create a launcher on our CI with it?
 
 ### Suggestions (for http://pharo.org/download)
+  - put a catch-all for Other, with a way to get in contact with us if one runs into trouble that does not require login or subscription (i.e. not the mailing list or fogbugz). IMO an email address would be perfect
+
+Done:
 - Remove all GNU/Linux instructions from the page. Instead, when a user clicks on the Linux button, they should be taken to a whole different page that explains the intricacies of each platform.
 - On the page described above:
   - put a clear heading for each GNU/Linux flavor (e.g. `###Debian` instead of "Looking for a debian distribution?")
-  - put a catch-all for Other, with a way to get in contact with us if one runs into trouble that does not require login or subscription (i.e. not the mailing list or fogbugz). IMO an email address would be perfect
 - [OT]: Change all references to `Linux` -> `GNU/Linux`. See https://www.gnu.org/gnu/gnu-linux-faq.html#why
+
 
 ### Flavors
 
-#### Ubuntu
+#### Ubuntu *** For Pharo 5 when we convert everything to the Pharo Launcher
 - Follow PPA instructions
-- Link to the [Launcher tutorial](https://github.com/SquareBracketAssociates/PharoInProgress/tree/master/PharoLauncherTutorial) once there is a stable artifact
+- Link to the [Launcher tutorial](https://github.com/SquareBracketAssociates/PharoInProgress/tree/master/PharoLauncherTutorial). Right now, there are multiple formats at https://ci.inria.fr/pharo-contribution/job/PharoBookWorkInProgress/lastSuccessfulBuild/artifact/PharoLauncherTutorial/ but it would be better to mirror to http://files.pharo.org
 
 #### Debian (jessie and later)
 Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
