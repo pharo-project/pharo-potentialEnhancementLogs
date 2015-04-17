@@ -1,4 +1,7 @@
-#### Create a Spec file (see [reference](http://fedoraproject.org/wiki/How_to_create_an_RPM_package#Building_the_binary_package))
+#### Git Repo
+https://github.com/pharo-project/pharo-openbuildservice
+
+#### Spec file (see [reference](http://fedoraproject.org/wiki/How_to_create_an_RPM_package#Building_the_binary_package))
 
 So far, the it's working up through the %build step. I'm not sure what to do for %install. I tried something naive, just as a proof-of-concept:
 ```
