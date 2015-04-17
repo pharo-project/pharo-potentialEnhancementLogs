@@ -15,3 +15,4 @@ but I got:
 ERROR   0020: file '/usr/bin/pharo-vm/libSDL2DisplayPlugin.so' contains an rpath referencing '..' of an absolute path [/root/rpmbuild/BUILD/pharo-4.0/build/../results]
 error: Bad exit status from /var/tmp/rpm-tmp.Nt0jZo (%install)
 ```
+It would be nice to extract the process that ZeroConf uses into sharable logic. Also, from the docs it seems that a make install rule is the place to define this stuff
