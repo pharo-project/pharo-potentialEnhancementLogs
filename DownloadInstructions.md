@@ -1,7 +1,8 @@
 ## GNU/Linux
 
 ### TODO
-- put a catch-all for Other, with a way to get in contact with us if one runs into trouble that does not require login or subscription (i.e. not the mailing list or fogbugz). IMO an email address would be perfect
+- #1 A++ -> [Get on OpenBuildService](https://pharo.fogbugz.com/default.asp?15371). This will solve many of our problems!!
+- Put a catch-all way to get in contact with us if one runs into trouble that does not require login or subscription (i.e. not the mailing list or fogbugz). IMO an email address would be perfect
 - Link to the [Launcher tutorial](https://github.com/SquareBracketAssociates/PharoInProgress/tree/master/PharoLauncherTutorial). Right now, there are multiple formats there but probably it would be better to mirror to http://files.pharo.org
 - Can we make a deb from the PPA? See https://wiki.debian.org/CreatePackageFromPPA
 - The file server seems messy- http://files.pharo.org/vm/pharo/linux/debian_ubuntu/ - There is a deb package from 2013, and a README saying to try the PPA for Ubuntu, but the folder should just be renamed to Debian, no? Or maybe remove entirely. What is this actually installing? Which Pharo version? 
