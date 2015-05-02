@@ -29,7 +29,10 @@ There are more than 1600 issues treated in this release.
 New stuff
 ---------
 
-- GTools (Playground, Inspector, Spotter)
+- GTools 
+  - Playground https://www.google.com/search?q=allinurl:+GTPlayground+site:humane-assessment.com
+  - Inspector https://www.google.com/search?q=allinurl:+GTInspector+site:humane-assessment.com
+  - Spotter https://www.google.com/search?q=allinurl:+GTSpotter+site:humane-assessment.com
 - Slots model instance variables as first class enities and enable meta-programming on this level.
 - ShoreLine reporter: submit information automatically when errors happen
 - TxModel, a modern text model who works with Athens (Preview)
