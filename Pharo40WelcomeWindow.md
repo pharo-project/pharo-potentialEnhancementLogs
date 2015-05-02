@@ -31,14 +31,14 @@ New stuff
 
 - GTools - a revolutionary suite of moldable development tools
   - Playground - one tool, with all the features of and Inspector and a Workspace, which manages an entire workflow in a single window showing custom domain presentations for each object (https://www.google.com/search?q=allinurl:+GTPlayground+site:humane-assessment.com)
-  - Inspector (https://www.google.com/search?q=allinurl:+GTInspector+site:humane-assessment.com)
   - Spotter - a uniform yet moldable search interface that works on any object, through arbitrary levels of nesting (https://www.google.com/search?q=allinurl:+GTSpotter+site:humane-assessment.com)
+  - Inspector - deceptively simple, but one click and you have all the moldable power of a Playground (https://www.google.com/search?q=allinurl:+GTInspector+site:humane-assessment.com)
 - Slots - model instance variables as first class enities and enable meta-programming on this level. Read the paper at http://rmod.lille.inria.fr/archives/papers/Verw11a-OOSPLA11-FlexibleObjectLayouts.pdf
 - ShoreLine reporter - submit information automatically when errors happen (http://forum.world.st/ShoreLine-Reporter-is-in-Pharo-4-td4794723.html)
 - [Preview] TxText - a modern text model which works with Athens
 - [Preview] OSWindow - a new way to handle windows and input events (http://forum.world.st/Initial-versions-for-OSWindow-and-Woden-td4761069.html)
 - Glamour - a mature declarative browser builder (http://pharobooks.gforge.inria.fr/PharoByExampleTwo-Eng/latest/Glamour.pdf)
-- Dark theme (https://d262ilb51hltx0.cloudfront.net/max/2000/1*ezJrwvvvCaLCMumPQTKU1Q.png)
+- Dark theme (screenshot at https://d262ilb51hltx0.cloudfront.net/max/2000/1*ezJrwvvvCaLCMumPQTKU1Q.png)
 
 Updated stuff
 -------------
