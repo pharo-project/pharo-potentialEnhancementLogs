@@ -8,6 +8,7 @@ Just like Bloc (which has *great* class comments), I think it's crucial to docum
 - TxForeColorAttribute - Why not TxFontColorAttribute? Is the fore/font distinction important?
 - TxXyzAttribute - can we remove the 'Attribute' from all but the base class? e.g. TxFontAttribute -> TxFont
 - TxModel class comment - "I don't provide a direct interface for mutating/editing my data (and this is a very important point). Instead I am modified using position(s) (TxTextPosition) and/or selection(s) (TxInterval/TxSelection), providing a rich protocol for various operations over text." That sounds intriguing, but why is that so significant?
+- TxStyle - why both #at: and #get:?
 
 ####Implementation Questions:
 - TxBasicSpan#< seems overly complex. Why two-way searching. Was it the result of profiling? Intuition? Random?
