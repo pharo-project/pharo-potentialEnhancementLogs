@@ -2,6 +2,18 @@ Discussion started at http://forum.world.st/Tx-Pass-tt4822173.html :
 Just like Bloc (which has *great* class comments), I think it's crucial to document the high level design decisions in Tx. I did a first pass and noted some initial impressions...
 
 ### Questions
+
+##### TxModel
+Overall, it seems to have waaaay too much responsibility:
+- know my start and end span
+- provide a stream of characters
+- know all my styles
+- provide span access and enumeration
+- create selections
+- provide positions
+- create cursors
+- organize 
+
 ####Design Questions
 - TxModel
   - what is the advantage of a double linked list vs the old Text implementation? (Pull answer from ml)
