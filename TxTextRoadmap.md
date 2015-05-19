@@ -3,7 +3,16 @@ Just like Bloc (which has *great* class comments), I think it's crucial to docum
 
 ### Questions
 ####Design Questions
-- TxModel - what is the advantage of a double linked list vs the old Text implementation?
+- TxModel
+  - what is the advantage of a double linked list vs the old Text implementation? (Pull answer from ml)
+  - `#cursor` to me is misleading; it sounds like there is a single cursor, like in a text editor
+  - `#asStringOn:`. We have `#characterStream`. Why not use it instead of re-implementing the logic? E.g.
+```
+charStream := self characterStream.
+String streamContents: [ :str |
+        [ self isAtEnd ] whileFalse: [ charStream nextPut: self next ] ]
+```
+- `TxCharacterStream` does not implement full `Stream` protocol e.g. `#nextPut:`
 - TxLayoutViewMorph vs. TxTextEditorMorph - I'm not clear on the purpose/relationship/pattern here?
 - TxForeColorAttribute - Why not TxFontColorAttribute? Is the fore/font distinction important?
 - TxXyzAttribute - can we remove the 'Attribute' from all but the base class? e.g. TxFontAttribute -> TxFont
