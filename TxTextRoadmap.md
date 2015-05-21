@@ -14,11 +14,12 @@ Overall, it seems to have waaaay too much responsibility:
 - create cursors
 - organize 
 
-####Design Questions
+#### Design Questions
 - TxModel
   - what is the advantage of a double linked list vs the old Text implementation? (Pull answer from ml)
   - `#cursor` to me is misleading; it sounds like there is a single cursor, like in a text editor. In fact, I'd like to remove all cursor and selection-related behavior out of TxModel
-  - Span protocols seem a little disjoined. There is `#spans`, which returns an array; `#spansDo:`, `#startSpan`, and `#lastSpan`. In fact, why is it anyone's business that we hold spans? What does a client do with this info? Maybe this all should be private
+  - Changing text invalidates external positions. Is this sustainable? If for example there are multiple views on a text, how will they know that their positions are now invalid?
+  - Span protocols seem a little disjoined. There is `#spans`, which returns an array; `#spansDo:`, `#startSpan`, and `#lastSpan`. In fact, why is it anyone's business that we hold spans? What does a client do with this info? Maybe this all should be private. **Right now it seems everyone in the system knows that we're using a linked list!**
   - `#asStringOn:`. We have `#characterStream`. Why not use it instead of re-implementing the logic? E.g.
 ```
 charStream := self characterStream.
