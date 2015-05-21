@@ -52,4 +52,4 @@ Instead you use positions/cursors and intervals/selections because they know to 
 - TxBasicViewMorph>>#fullDrawOnAthensCanvas: checks if fullBounds are visible on canvas, then checks #bounds again. Are both necessary? 
 
 ###Ideas
-- Since TxSelection is immutable, how about TxEmptySelection or TxNoSelection
+- ~~Since TxSelection is immutable,~~ how about TxEmptySelection or TxNoSelection. I see now that `TxSelection` is *not* immutable (in fact, it's mutability seems to be what distinguishes it from a `TxInterval`, but a Null Object pattern still may be useful here.
