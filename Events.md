@@ -4,9 +4,10 @@ Previous to OSWindow
 --------------------------------------------------------
 Currently the events are fetched via HandMorph>>processEvents
 
+```
 HandMorph>>processEvents was handling events
 	from Sensor which takes them inputEventSensor
-
+```
 
 In OSWindow handleEvent: anEvent
 -------------------------------------------------------------------
@@ -23,8 +24,8 @@ within the OSWindow frameworks). This is in the sense that it would be good to a
 The OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 	should be cleaned.
 
 
-``OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent ``
-``	morphicWorld defer: [ morphicWorld activeHand handleEvent: anEvent ]. ``
+```OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 
+```	morphicWorld defer: [ morphicWorld activeHand handleEvent: anEvent ]. 
 
 This method should rewritten with a more efficient approach. We should remove the use of defer:
 The OSWindowMorphicEventHandler should act similar to the input Event Fetcher process
@@ -50,11 +51,12 @@ We should rewrite the HandMorph to act as a windowHandler
 WorldMorph>>recreateOSWindow, WorldMorph>>pickMostSuitableWindowDriver, WorldMorph>>checkSession
 should be packaged with OSWindow
 ----------------------------------------------------------------------------------------------
-
+```
 OSSDL2Driver>>processEvent: sdlEvent
 	| event |
 	event := self convertEvent: sdlEvent.
 	event ifNotNil: [ eventQueue nextPut: event ].
+```
 
 OSSDL2Driver>>processEvent: sdlEvent should not have a queue, or the queue in the window.
 It should call a OSWindow.
@@ -69,7 +71,8 @@ World
 			setup event processing. The event handler should be the responsibility of OSSystemWindow.
 
 Each OSWindow has the event handler as shown below.
-		
+
+```		
 recreateOSWindow
 	| attributes driver |
 	session := Smalltalk session.
@@ -83,7 +86,7 @@ recreateOSWindow
 	osWindow := OSWindow createWithAttributes: attributes.
 	osWindow newFormRenderer: Display.
 	osWindow eventHandler: (OSWindowMorphicEventHandler for: self).		
-
+```
 
 The Driver knows how to create the window. But it does not know when. 
 The client sets up the handler. We can have custom handler for any window.
@@ -93,11 +96,11 @@ The client sets up the handler. We can have custom handler for any window.
 
 The Window driver should be responsible to deliver event to consumer similarly 
 
+```
 OSSDL2Driver>>eventLoopProcessWithPlugin
 	| event session semaIndex |
 	event := SDL_Event new.
 	session := Smalltalk session.
-	
 	semaIndex := (Smalltalk registerExternalObject: inputSemaphore).
 	self primSetupInputSemaphore: semaIndex.
 	[
@@ -107,7 +110,7 @@ OSSDL2Driver>>eventLoopProcessWithPlugin
 			].
 		]
 	] ensure:  [ Smalltalk unregisterExternalObject: inputSemaphore ]
-
+```
 
 ------------------------------------------------------------------------------------------------
 We can clean and remove all the calling tree calling dispatchMorphicEvent: 
