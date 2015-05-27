@@ -2,7 +2,7 @@ Here is a draft analysis of the possible actions to be done to continue the work
 
 Previous to OSWindow
 --------------------------------------------------------
-Currently the events are fetched via HandMorph>>processEvents
+Currently the events are fetched via `HandMorph>>processEvents`
 
 ```
 HandMorph>>processEvents was handling events
@@ -13,7 +13,7 @@ In OSWindow handleEvent: anEvent
 -------------------------------------------------------------------
 
 
-OSWindowMorphicEventHandler>>dispatchMorphicEvent: is recreating the morphic events from the OSWindow events.
+`OSWindowMorphicEventHandler>>dispatchMorphicEvent:` is recreating the morphic events from the OSWindow events.
 
 --------------------------
 Right now we are in migration period.
@@ -21,11 +21,13 @@ Right now we are in migration period.
 We should move the logic of the InputEventFetcher to the OSVMWindowDriver (represents the old system
 within the OSWindow frameworks). This is in the sense that it would be good to avoid to have two different mechanisms. 
 
-The OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 	should be cleaned.
+The `OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent` should be cleaned.
 
 
-```OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 
-```	morphicWorld defer: [ morphicWorld activeHand handleEvent: anEvent ]. 
+```
+OSWindowMorphicEventHandler>>dispatchMorphicEvent: anEvent 
+	morphicWorld defer: [ morphicWorld activeHand handleEvent: anEvent ]. 
+```
 
 This method should rewritten with a more efficient approach. We should remove the use of defer:
 The OSWindowMorphicEventHandler should act similar to the input Event Fetcher process
@@ -35,7 +37,6 @@ The hand or similar object should fetch events.
 We should pay attention that when then there is no UI process we should not explode. 
 Probably the UI Process should be responsible to set the fetching process.
 
-
 VMDriver should use
 * input semaphore
 * fetch event
@@ -44,12 +45,11 @@ VMDriver should use
 
 The three first steps are in Sensor logic.
 
-We should rewrite the HandMorph to act as a windowHandler
+We should rewrite the `HandMorph` to act as a windowHandler
 
 
 ------------------------------
-WorldMorph>>recreateOSWindow, WorldMorph>>pickMostSuitableWindowDriver, WorldMorph>>checkSession
-should be packaged with OSWindow
+`WorldMorph>>recreateOSWindow`, `WorldMorph>>pickMostSuitableWindowDriver`, `WorldMorph>>checkSession` should be packaged with OSWindow
 ----------------------------------------------------------------------------------------------
 ```
 OSSDL2Driver>>processEvent: sdlEvent
@@ -58,9 +58,8 @@ OSSDL2Driver>>processEvent: sdlEvent
 	event ifNotNil: [ eventQueue nextPut: event ].
 ```
 
-OSSDL2Driver>>processEvent: sdlEvent should not have a queue, or the queue in the window.
+`OSSDL2Driver>>processEvent: sdlEvent` should not have a queue, or the queue in the window.
 It should call a OSWindow.
-
 
 -----------------------------------------------------------------------------------------------
 the logic should be
