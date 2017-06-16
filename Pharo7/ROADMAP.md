@@ -20,7 +20,6 @@
   - separate Encoder 
 - old inspector cleanup
   - remove eye inspector, keep a fallback inspector
-- remove Shoreline reporter
 - commandline enhancements
 - kernel should not depend on Traits
 - class definition parser
@@ -41,6 +40,8 @@
 - Cargo
 - check dependencies when committing 
 - Freetype
+
+- [DONE] remove Shoreline reporter
 
 ## VM
 - 64-bits by default
