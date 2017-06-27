@@ -77,7 +77,7 @@ It looks like LogicalFont should be more used since this is an abstraction over 
     * get* should be moved to logicalFonts
     * asFreeTypeFont to freeType package
   * Same for FreeTypeFont
-	
+  * logicalFont contains methods with squeak* we should clean them.
 	
 ### LogicalFontManager
   * [Done - 13270] Extract an abstract package out of FreeType package
