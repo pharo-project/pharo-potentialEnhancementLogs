@@ -53,7 +53,7 @@ Instead of having an explosion of combinations
 We could have 
 ```
 	aMenuMorph
-		itemLabel: aString;
+		label: aString;
 		...
 		addItem.
 ```
@@ -66,24 +66,13 @@ aMenuItem new
 
 mainInspectSubMenu: aMenu 
 	aMenu 
-		add: 'Inspect (i)' translated
-		target: self
-		selector: #inspectSelectedObjectInNewWindow.
-				
-	aMenu
-		add: 'Explore (I)' translated
-		target: self
-		selector: #exploreSelectedObject.
-
-mainInspectSubMenu: aMenu 
-	aMenu 
-		itemLabel: 'Inspect (i)' translated ;
+		label: 'Inspect (i)' translated ;
 		target: self ;
 		selector: #inspectSelectedObjectInNewWindow;
 		addItem.
 				
 	aMenu
-		itemLabel: 'Explore (I)' translated ;
+		label: 'Explore (I)' translated ;
 		target: self ;
 		selector: #exploreSelectedObject;
 		addItem
@@ -94,12 +83,12 @@ Esteban proposed to use blocks
 mainInspectSubMenu: aMenu 
 	aMenu buildItem: [ :item |
 		item
-			itemLabel: 'Inspect (i)' translated ;
+			label: 'Inspect (i)' translated ;
 			target: self ;
 			selector: #inspectSelectedObjectInNewWindow ].
 	aMenu buildItem: [:item |
 		item
-			itemLabel: 'Explore (I)' translated ;
+			label: 'Explore (I)' translated ;
 			target: self ;
 			selector: #exploreSelectedObject ]
 ```				

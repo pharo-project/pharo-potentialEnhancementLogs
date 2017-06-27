@@ -1,14 +1,16 @@
-##Morphic Notes
+#Morphic Notes
 
 Here are some notes about various morph aspects. Not all of them should be cleaned. Still this is interesting to be aware of some.
-Author: StÃ©phane Ducasse
+Author: StÃƒÂ©phane Ducasse
 Date of Latest Modification: 20 September 2014
 
-###UITheme and Widgets Analysis
+##UITheme and Widgets Analysis
 
 interesting resources: 
 http://www.humane-assessment.com/blog/a-pharo-refactoring-story-adding-theme-ability-to-a-morph
 
+### Questions
+- does each Morph instance really need the ability to have its own custom theme? If we remove #theme and #theme:, we can layer the theming on top e.g. with a ThemingVisitor. It would be nice if Morphs knew nothing about themes and they could be removed completely if not needed...
 
 #### first the factory API should be pushed in the respective classes
 
@@ -265,8 +267,8 @@ The view knows its model! Not the inverse.
 Toggle>>isEnabled
 	^ self withModelDo: [ :m | m isEnabled ] ifAbsent: [ true ]
 
-donc ici, dans le morph j?ai fixé les choses. 
-On délègue au model le soin de répondre et on 
+donc ici, dans le morph j?ai fixÃ© les choses. 
+On dÃ©lÃ¨gue au model le soin de rÃ©pondre et on 
 simplifie le morph.
 
 ToggleModel>>isEnabled
@@ -274,7 +276,7 @@ ToggleModel>>isEnabled
 
 ToggleModel>>disable
 	enable := false.
-	self announce: ModelChanged new. ? ou quelque-chose comme ça pour que la/les vue(s) réagisse(nt) "
+	self announce: ModelChanged new. ? ou quelque-chose comme Ã§a pour que la/les vue(s) rÃ©agisse(nt) "
 
 
 We should think about the default API isEnabled should be part of this API.
