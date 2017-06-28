@@ -57,10 +57,7 @@ As a general principle, we will try to remove something when we add a new featur
 
 - pass on Opal
 
-
 - Commandline enhancements. RMOD is currently improving the command-line infrastructure and making sure that the system can work in read-only mode.
-
-
 
 - Cleaning streams: the idea is to make sure that the system does not use the old streams. The idea is to start using the fileStreams and make sure that the Stream package can be substituated in the future by other streams with the same API. Therefore hardcoded class names should be substituted with factory (readSream writeStream). From that perspective we do not think that it is wise to introduce Xtreams. We should analyse the API of the current implementation. 
 
@@ -70,9 +67,6 @@ As a general principle, we will try to remove something when we add a new featur
 - OSWindow world rendering: the effort to remove the logic of the windowing from the VM should be continued. OSWindow should be used instead. 
 
 - Refactoring 2: Refactoring 2 is an improved version of the refactorings.
-
-
-
 
 - Freetype: The current freetype plugin is the source of many bugs and problem. Thibault Raffaillac used FFI to do direct call to openGL (@@to verify@@).
 
@@ -86,13 +80,6 @@ As a general principle, we will try to remove something when we add a new featur
 
 - 64-bits by default: Mac and Linux 64 bits VMs have been working for over a year and since June 2017 a Windows 64 bits VM has been working. The plan is to stabilize each part of Pharo that is not working in 64 bits as well as in 32 bits and make the 64 bits Pharo images and VM the default download for Pharo.
 
-- New Block Closure implementation by default: Allows one to implement in the Opal compiler the copying and clean blocks optimisations, reduce massively the complexity of some parts of the JIT (debugging API to map machine code pc to bytecode pc for example) and is required for the Sista support. Some work remains in debugging/IDE support.
-- New Bytecode set in production: Eases bytecode decoding (simplifying the code base of the bytecode to source code decompiler, the debugger, the JIT, etc.), lifts compiled code limitations (size of jumps, etc.) and is required for the Sista support. Some work remains in debugging support.
-- Read-only objects: They work in Pharo 6, but the in-image support needs to be improved (fall-back code of primitives, etc.) and some polishing needs to be done (primitive error code not always correct, etc.). Used for the support of different project, including GBS.
-- Literals immutability (based on read-only objects)
-
-- Sista preview: A first version of Sista will be integrated, yielding 1.5x performance boost on most applications, but will be optional and will require specific constraints (not toying too much with literal mutability, partial IDE support, etc.).
-
 - Headless VM: Ronie Salgado has built a headless VM on his VM branch, we need to merge and check everything works fine. With the headless VM, Pharo can be run in true headless mode (not with a hidden window) and it is required for future VM features (embeddable VM, ...).
 - Embeddable VM: The VM should be able to be embedded in external applications, the application accessing objects through well-defined APIs.
 - Idle VM: The goal is to avoid the active waiting loop consuming several per cent of cpu time when the Pharo image is not doing anything.
@@ -103,8 +90,15 @@ As a general principle, we will try to remove something when we add a new featur
 
 - ZeroConf for ARM
 
-- support for large heaps (GC tuning API, incremental GC)
+- better support for large heaps (GC tuning API, incremental GC)
 
 - Integrate various fixes to support better high resolution display
 
-- HiRes
+## Sista-related
+
+- New Block Closure implementation by default: Allows one to implement in the Opal compiler the copying and clean blocks optimisations, reduce massively the complexity of some parts of the JIT (debugging API to map machine code pc to bytecode pc for example) and is required for the Sista support. Some work remains in debugging/IDE support.
+- New Bytecode set in production: Eases bytecode decoding (simplifying the code base of the bytecode to source code decompiler, the debugger, the JIT, etc.), lifts compiled code limitations (size of jumps, etc.) and is required for the Sista support. Some work remains in debugging support.
+- Read-only objects: They work in Pharo 6, but the in-image support needs to be improved (fall-back code of primitives, etc.) and some polishing needs to be done (primitive error code not always correct, etc.). Used for the support of different project, including GBS.
+- Literals immutability (based on read-only objects)
+
+- Sista preview: A first version of Sista will be integrated, yielding 1.5x performance boost on most applications, but will be optional and will require specific constraints (not toying too much with literal mutability, partial IDE support, etc.).
