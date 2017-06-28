@@ -83,17 +83,28 @@ As a general principle, we will try to remove something when we add a new featur
 
 
 ## VM
-- 64-bits by default
-- remove display support from VM
-- new bloc closures by default (fixes for senders...)
-- new bytecode sets in production (method limitations?)
-- read only objects
-- literals immutability
-- Sista preview
-- Android VM
-- idle VM
-- Threaded FFI
-- embeddable VM
+
+- 64-bits by default: Mac and Linux 64 bits VMs have been working for over a year and since June 2017 a Windows 64 bits VM has been working. The plan is to stabilize each part of Pharo that is not working in 64 bits as well as in 32 bits and make the 64 bits Pharo images and VM the default download for Pharo.
+
+- New Block Closure implementation by default: Allows one to implement in the Opal compiler the copying and clean blocks optimisations, reduce massively the complexity of some parts of the JIT (debugging API to map machine code pc to bytecode pc for example) and is required for the Sista support. Some work remains in debugging/IDE support.
+- New Bytecode set in production: Eases bytecode decoding (simplifying the code base of the bytecode to source code decompiler, the debugger, the JIT, etc.), lifts compiled code limitations (size of jumps, etc.) and is required for the Sista support. Some work remains in debugging support.
+- Read-only objects: They work in Pharo 6, but the in-image support needs to be improved (fall-back code of primitives, etc.) and some polishing needs to be done (primitive error code not always correct, etc.). Used for the support of different project, including GBS.
+- Literals immutability (based on read-only objects)
+
+- Sista preview: A first version of Sista will be integrated, yielding 1.5x performance boost on most applications, but will be optional and will require specific constraints (not toying too much with literal mutability, partial IDE support, etc.).
+
+- Headless VM: Ronie Salgado has built a headless VM on his VM branch, we need to merge and check everything works fine. With the headless VM, Pharo can be run in true headless mode (not with a hidden window) and it is required for future VM features (embeddable VM, ...).
+- Embeddable VM: The VM should be able to be embedded in external applications, the application accessing objects through well-defined APIs.
+- Idle VM: The goal is to avoid the active waiting loop consuming several per cent of cpu time when the Pharo image is not doing anything.
+
+- Android VM: integration of the Android VM build and tests in the integration setup
+
+- Threaded FFI: all FFI calls could be non-blocking (reviving prototype of Eliot)
+
 - ZeroConf for ARM
-- large heaps (GC)
-- HiRes, Retina?
+
+- support for large heaps (GC tuning API, incremental GC)
+
+- Integrate various fixes to support better high resolution display
+
+- HiRes
