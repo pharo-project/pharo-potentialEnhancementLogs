@@ -1,4 +1,4 @@
-# Pharo 7 and 8 potential roadmap
+# Pharo 7 (and 8) potential roadmap
 
 This document contains a list of actions that should be done during Pharo 7 and 8.
 It is not a definitive list. It is the result of a discussion within the engineer team and RModers. 
@@ -35,40 +35,47 @@ As a general principle, we will try to remove something when we add a new featur
 
 - Old inspector cleanup: we should remove the eyeInspector framework but we should introduce a minimal fallback inspector. This inspector should work without Spec or any frameworks. 
 
-
+- Clean behavior protocol. The number of methods in the core Behavior, ClassDescription and Class requires some analysis and cleaning. 
 
 ### Language infrastructure
-- Class definition parser
-- New class definition
-- Support for Undefined class
+
+- Class definition parser: 
+
+- New class definition: The class definition is not scaling anymore due to the large number of options (traits, slo, tage, package, immediate, ephemeron). A fluid-based message API should be designed. 
+
+- Support for Undefined class: When loading old code or code whose superclass has not yet being loaded, the system has inconsistent behavior. Depending on the tools, it may not load the code, raise a warning or decide that the superclass is Object without any other notice and losing the name of the original superclass. We are working on a new mechanism to support a unique way to handle such case. To be presented at IWST/ESUG
+
 - Better update infrastructure
 
 - Ring2
 
 - Inspector refreshing: the inspector should refresh its values by default. 
 
-- Versionner with support of baselines
-- clean behavior protocol
+- Cargo: Cargo is a new package manager. It supports the expression of dependencies between packages. We are currently validating that it can support conditional loading (platform) and building new tooling to express and validate data. 
+- Check dependencies when committing 
+- Versionner should be updated to support of baselines. 
+
 - pass on Opal
 
 
-- commandline enhancements
+- Commandline enhancements. RMOD is currently improving the command-line infrastructure and making sure that the system can work in read-only mode.
 
 
 
-- Cleaning streams: the idea is to make sure that the system do not use the old streams starting 
+- Cleaning streams: the idea is to make sure that the system does not use the old streams. The idea is to start using the fileStreams and make sure that the Stream package can be substituated in the future by other streams with the same API. Therefore hardcoded class names should be substituted with factory (readSream writeStream). From that perspective we do not think that it is wise to introduce Xtreams. We should analyse the API of the current implementation. 
 
 - New theme from the beginning
 - Better themes/palettes support
 - Better and nicer Tabs
+- OSWindow world rendering: the effort to remove the logic of the windowing from the VM should be continued. OSWindow should be used instead. 
 
-- Refactoring 2
+- Refactoring 2: Refactoring 2 is an improved version of the refactorings.
 
 
-- OSWindow world rendering
-- Cargo
-- check dependencies when committing 
-- Freetype
+
+
+- Freetype: The current freetype plugin is the source of many bugs and problem. Thibault Raffaillac used FFI to do direct call to openGL (@@to verify@@).
+
 ### Already done
 
 - [DONE] Remove Shoreline reporter.
