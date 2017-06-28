@@ -94,7 +94,7 @@ As a general principle, we will try to remove something when we add a new featur
 
 - Integrate various fixes to support better high resolution display
 
-## Sista-related
+### Sista-related
 
 - New Block Closure implementation by default: Allows one to implement in the Opal compiler the copying and clean blocks optimisations, reduce massively the complexity of some parts of the JIT (debugging API to map machine code pc to bytecode pc for example) and is required for the Sista support. Some work remains in debugging/IDE support.
 - New Bytecode set in production: Eases bytecode decoding (simplifying the code base of the bytecode to source code decompiler, the debugger, the JIT, etc.), lifts compiled code limitations (size of jumps, etc.) and is required for the Sista support. Some work remains in debugging support.
