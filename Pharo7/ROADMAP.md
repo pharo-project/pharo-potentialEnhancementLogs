@@ -30,7 +30,7 @@ As a general principle, we will try to remove something when we add a new featur
 ### Cleaning bloat
 - Removing of Nautilus: Once Calypso will be integrated and exhibit similar fetaures than Nautilus. Nautilus should be removed.
 - Remove old text editor: there is only one or two widgets still using the old text editor and the rubric text editor. 
-- Remove TxText: TxText was an attempt to get a new generation text editor. Now it has been rewritten with a new design in Bloc so we should remove it since Bloc editor is better and actively maintained.
+
 - Remove Komitter: Iceberg already supports cherrypicking on commit therefore Komitter can be safely removed from Pharo.
 - Remove system categorizer: The old system categorizer is not used anymore and should be remove. 
 
@@ -115,5 +115,6 @@ Sista is an optimizing JIT for Pharo. It is the result of multiple years of deve
 ### Already done
 
 - [DONE] Remove Shoreline reporter.
+- [DONE] TxText removal. Remove TxText: TxText was an attempt to get a new generation text editor. Now it has been rewritten with a new design in Bloc so we should remove it since Bloc editor is better and actively maintained.
 - [DONE] Kernel should not depend on Traits: This will speed up the bootstrap and support the modular introduction of alternate traits implementation currently designed by Pablo Tesone and tested in the new generation of Moose.
 
