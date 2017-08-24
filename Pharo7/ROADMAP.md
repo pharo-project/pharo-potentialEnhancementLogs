@@ -17,7 +17,7 @@ As a general principle, we will try to remove something when we add a new featur
 - Calypso: Calypso is a new tool suite for editing and navigating code. It is modular and can easily be extended. 
   - integration, set as the default browser
 
-- Hermes (binary loader): Hermes is a code loader that does not require the compiler to be loaded. It will be used to speed up the bootstrap.
+- [DONE] Hermes (binary loader): Hermes is a code loader that does not require the compiler to be loaded. It will be used to speed up the bootstrap.
 
 - Beacon: Beacon is an announcement-based logger. It should be introduced but in addition the left over of previous logging should be cleaned and removed for example many of the transcript show: should be removed.
 
