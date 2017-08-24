@@ -10,7 +10,7 @@ As a general principle, we will try to remove something when we add a new featur
 
 ### New tools
 - Iceberg: Iceberg is the new tool suite to handle new VCS in Pharo. For the moment it supports Git. This tool will become central to the development of projects in Pharo. The key and first enhancements will be: 
-  - cherry picking
+  - [DONE] cherry picking
   - multiple directories support, subtrees
   - better new development process support
 
@@ -31,14 +31,15 @@ As a general principle, we will try to remove something when we add a new featur
 - Removing of Nautilus: Once Calypso will be integrated and exhibit similar fetaures than Nautilus. Nautilus should be removed.
 - Remove old text editor: there is only one or two widgets still using the old text editor and the rubric text editor. 
 
-- Remove Komitter: Iceberg already supports cherrypicking on commit therefore Komitter can be safely removed from Pharo.
+- Remove Komitter: Iceberg already supports cherrypicking on commit therefore Komitter can be safely removed from Pharo. But versionner should be adapted first because it uses Komitter. 
+
 - Remove system categorizer: The old system categorizer is not used anymore and should be remove. 
 
-- Old compiler removal: The old compiler should now get unloaded from Pharo.
+- [Marcus should review this] Old compiler removal: The old compiler should now get unloaded from Pharo.
   - The old compiler should be moved to an external package and make sure that it can be reloaded. 
-  - In addition the encoders should be separated. (@@ more here@@)
+  - [DONE or PR] In addition the encoders should be separated.
 
-- Old inspector cleanup: we should remove the eyeInspector framework but we should introduce a minimal fallback inspector. This inspector should work without Spec or any frameworks. 
+- Old inspector c leanup: we should remove the eyeInspector framework but we should introduce a minimal fallback inspector. This inspector should work without Spec or any frameworks. Watch out the SpecDebuggger is using the EyeInspector.
 
 - Clean behavior protocol. The number of methods in the core Behavior, ClassDescription and Class requires some analysis and cleaning. 
 
@@ -49,9 +50,9 @@ The following points are more related to the infrastructure of manipulating and 
 
 - New class definition: The class definition is not scaling anymore due to the large number of options (traits, slot, tage, package, immediate, ephemeron). A fluid-based message API should be designed. 
 
-- Support for Undefined classes: When loading old code or code whose superclass has not yet being loaded, the system has inconsistent behavior. Depending on the tools, it may not load the code, raise a warning or decide that the superclass is Object without any other notice and losing the name of the original superclass. We are working on a new mechanism to support a unique way to handle such case. To be presented at IWST/ESUG
+- [Marcus should review this] Support for Undefined classes: When loading old code or code whose superclass has not yet being loaded, the system has inconsistent behavior. Depending on the tools, it may not load the code, raise a warning or decide that the superclass is Object without any other notice and losing the name of the original superclass. We are working on a new mechanism to support a unique way to handle such case. To be presented at IWST/ESUG
 
-- Class definition parser: Class definition is parser in different place of the system and in addition the output is the direct creation of a class object instead of an object representing the class definition that can be further manipulated. We are working on class definition parser. It produces a separate AST. It will help the building of tools. 
+-  [Marcus should review this] Class definition AST: Class definition is parser in different place of the system and in addition the output is the direct creation of a class object instead of an object representing the class definition that can be further manipulated. We are working on class definition parser. It produces a separate AST. It will help the building of tools. 
 
 - Better update infrastructure. Pablo Tesone has been working on a better update mechanism, better modular class builder. 
 
