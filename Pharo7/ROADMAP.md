@@ -14,7 +14,7 @@ As a general principle, we will try to remove something when we add a new featur
   - multiple directories support, subtrees
   - better new development process support
 
-- Calypso: Calypso is a new tool suite for editing and navigating code. It is modular and can easily be extended. 
+- [Underway] Calypso: Calypso is a new tool suite for editing and navigating code. It is modular and can easily be extended. 
   - integration, set as the default browser
 
 - [DONE] Hermes (binary loader): Hermes is a code loader that does not require the compiler to be loaded. It will be used to speed up the bootstrap.
