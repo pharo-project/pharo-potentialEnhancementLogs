@@ -50,6 +50,8 @@ The following points are more related to the infrastructure of manipulating and 
 
 - New class definition: The class definition is not scaling anymore due to the large number of options (traits, slot, tage, package, immediate, ephemeron). A fluid-based message API should be designed. 
 
+- [Guille ] New code importer infrastructure: the importer should be able to produce MC definitions.
+
 - [Marcus should review this] Support for Undefined classes: When loading old code or code whose superclass has not yet being loaded, the system has inconsistent behavior. Depending on the tools, it may not load the code, raise a warning or decide that the superclass is Object without any other notice and losing the name of the original superclass. We are working on a new mechanism to support a unique way to handle such case. To be presented at IWST/ESUG
 
 -  [Marcus should review this] Class definition AST: Class definition is parser in different place of the system and in addition the output is the direct creation of a class object instead of an object representing the class definition that can be further manipulated. We are working on class definition parser. It produces a separate AST. It will help the building of tools. 
