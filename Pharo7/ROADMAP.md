@@ -71,7 +71,8 @@ The following points are more related to the infrastructure of manipulating and 
 - New theme from the beginning. It is really important that each version of Pharo is identified open the default opening. Pharo should come up with two default themes: one light and one dark. 
 
 - Better themes/palettes support
-- Better and nicer Tabs. Tabs design should be revisited. 
+
+- [Underway] Better and nicer Tabs. Tabs design should be revisited. 
 
 - OSWindow world rendering: the effort to remove the logic of the windowing from the VM should be continued. OSWindow should be used instead. 
 
