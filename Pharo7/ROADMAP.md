@@ -11,6 +11,7 @@ As a general principle, we will try to remove something when we add a new featur
 ### New tools
 - Iceberg: Iceberg is the new tool suite to handle new VCS in Pharo. For the moment it supports Git. This tool will become central to the development of projects in Pharo. The key and first enhancements will be: 
   - [DONE] cherry picking
+  - [DONE pending integration] Class format to support Windows users and reduce disk space
   - multiple directories support, subtrees
   - better new development process support
 
@@ -72,7 +73,7 @@ The following points are more related to the infrastructure of manipulating and 
 
 - New theme from the beginning. It is really important that each version of Pharo is identified open the default opening. Pharo should come up with two default themes: one light and one dark. 
 
-- Better themes/palettes support
+- [Pharo 8] Better themes/palettes support
 
 - [Underway] Better and nicer Tabs. Tabs design should be revisited. 
 
@@ -80,11 +81,13 @@ The following points are more related to the infrastructure of manipulating and 
 
 - Freetype: The current freetype plugin is the source of many bugs and problem. Thibault Raffaillac used FFI to do direct call to openGL (@@to verify@@).
 
-
 - Refactoring 2: Refactoring 2 is an improved version of the refactorings developed by Gustavos Santos and they should used to replace the existing one. 
 
 
 ## VM
+Work on the VM takes a lot of engineering effort so they will happen probably on Pharo 70 and Pharo 80.
+
+- VM stability: Callbacks may introduce some instability. Such instability should be chased and fixed. If you have reproducible cases please please contact us. 
 
 - 64-bits by default: Mac and Linux 64 bits VMs have been working for over a year and since June 2017 a Windows 64 bits VM has been working. The plan is to stabilize each part of Pharo that is not working in 64 bits as well as in 32 bits and make the 64 bits Pharo images and VM the default download for Pharo.
 
