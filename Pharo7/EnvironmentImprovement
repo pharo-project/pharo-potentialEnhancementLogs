@@ -1,0 +1,19 @@
+# General
+This list is a list of little actions that will make us more productive. 
+
+- The list of menu should distinguish Refactorings and code transformation. 
+
+# Refactorings 
+
+- inline on non self-send should not raise a DNU when applied from SmartSuggestion.
+
+# Code Transformation
+
+- an inline... menu item should be added in the code transformation section. This inline on non self-send could propose to the user to pick up the wished implementation and expand it. 
+- move to class / instance should be moved to the transformation section.
+- move to class could add class to self-send
+
+# Renraku
+
+- move the RB rules to their renraku counterpart. 
+- systematize code transformation. Rules should offer as much as possible code transformation.
