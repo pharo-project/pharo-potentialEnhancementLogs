@@ -1,11 +1,14 @@
 # General
-This list is a list of little actions that will make us more productive. 
+This list is a list of little actions that will make us more productive. Please add your ideas and wish list but consider that it will not magically happen and 
+that if you can give a hand it will increase the chances that it will happen.
 
 - The list of menu should distinguish Refactorings and code transformation. 
 
 # Refactorings 
 
 - inline on non self-send should not raise a DNU when applied from SmartSuggestion.
+- Swap ifTrue:ifFalse: by ifFalse:ifTrue: to help writing guard.
+
 
 # Code Transformation
 
