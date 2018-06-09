@@ -8,7 +8,7 @@ that if you can give a hand it will increase the chances that it will happen.
 
 - inline on non self-send should not raise a DNU when applied from SmartSuggestion.
 - Swap ifTrue:ifFalse: by ifFalse:ifTrue: to help writing guard.
-
+- Add parameter should let us edit the parameter name.
 
 # Code Transformation
 
