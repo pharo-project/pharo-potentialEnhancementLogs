@@ -10,6 +10,8 @@ that if you can give a hand it will increase the chances that it will happen.
 - Swap ifTrue:ifFalse: by ifFalse:ifTrue: to help writing guard.
 - Add parameter should let us edit the parameter name.
 
+- Refactorings should not hardcode the description of Error because it prevents the tools to simply use the error in case they need it. 
+
 # Code Transformation
 
 - an inline... menu item should be added in the code transformation section. This inline on non self-send could propose to the user to pick up the wished implementation and expand it. 
