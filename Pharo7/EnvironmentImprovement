@@ -8,9 +8,13 @@ that if you can give a hand it will increase the chances that it will happen.
 
 - inline on non self-send should not raise a DNU when applied from SmartSuggestion.
 - Swap ifTrue:ifFalse: by ifFalse:ifTrue: to help writing guard.
+- swap condition, e.g iFalse: [ someBoolean and: [ an expression ] ] => ifF
 - Add parameter should let us edit the parameter name.
 
-- Refactorings should not hardcode the description of Error because it prevents the tools to simply use the error in case they need it. 
+- Refactorings should not hardcode the description of Error because it prevents the tools to simply use the error in case they need it.
+- add shortcuts for refactorings, especially the most used (e.g. extract method)
+
+- we should check that we have refactorings listed at https://www.jetbrains.com/help/idea/refactoring-source-code.html in Pharo and that they work well
 
 # Code Transformation
 
