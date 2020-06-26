@@ -6,4 +6,4 @@ For the real projects roadmap it is better to look at ESUG or PharoDays presenta
 
 Here is one talk at ESUG 2019 about Pharo80 alpha and potential items for P9
 
-https://www.youtube.com/watch?v=qSKqB2R3yGU
+[https://www.youtube.com/watch?v=qSKqB2R3yGU](https://www.youtube.com/watch?v=qSKqB2R3yGU)
